@@ -1,0 +1,4 @@
+static/img/jobs/*.jpg filter=lfs diff=lfs merge=lfs -text
+static/img/jobs/*.png filter=lfs diff=lfs merge=lfs -text
+static/img/banner/*.jpg filter=lfs diff=lfs merge=lfs -text
+static/img/banner/*.png filter=lfs diff=lfs merge=lfs -text

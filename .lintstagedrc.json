@@ -1,0 +1,6 @@
+{
+  "*.{ts,tsx}": [
+    "yarn lint:check",
+    "yarn test:unit --onlyChanged --findRelatedTests"
+  ]
+}

@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - 10
+cache:
+  yarn: true
+  directories:
+    - node_modules
+stages:
+  - Static Analysis
+  - Tests
+  - Build
+jobs:
+  include:
+    - stage: Static Analysis
+      script: yarn lint:check
+      name: lint:check
+    - script: yarn type:check
+      name: type:check
+    - stage: Tests
+      name: unit
+      script: yarn test:unit
+    - stage: Build
+      name: production
+      script: yarn build
