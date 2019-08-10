@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Header } from '~components/Header';
+import { Footer } from '~components/Footer';
 import { Theme } from '~components/Theme';
 import { SEO } from '~components/SEO';
 import '~assets/css/reset.css';
@@ -12,6 +13,7 @@ const LayoutDefault: FunctionComponent = ({ children }) => (
     <SEO />
     <Header />
     {children}
+    <Footer />
   </Theme>
 );
 
