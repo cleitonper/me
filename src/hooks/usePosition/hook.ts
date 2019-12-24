@@ -19,7 +19,7 @@ const getPosition = (element?: HTMLElement): Position => {
  * @param element O element *HTML* o qual se deseja obter a posição
  * @return A posição de `element` ou o deslocamento atual da página
  */
-export default (element?: RefObject<HTMLElement | null>): Position => {
+export default function usePosition(element?: RefObject<HTMLElement | null>): Position {
   const [position, setPosition] = useState<Position>([0, 0]);
 
   useEffect(() => {
@@ -38,4 +38,4 @@ export default (element?: RefObject<HTMLElement | null>): Position => {
   }, [element]);
 
   return position;
-};
+}
