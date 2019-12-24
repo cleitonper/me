@@ -17,7 +17,8 @@
       "~layouts/*": ["layouts/*"],
       "~pages/*": ["pages/*"],
       "~hooks/*": ["hooks/*"],
-      "~types/*": ["types/*"]
+      "~types/*": ["types/*"],
+      "~util/*": ["util/*"]
     },
     "lib": [
       "dom",

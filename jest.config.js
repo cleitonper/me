@@ -35,5 +35,6 @@ module.exports = {
     "^~pages/(.*)$": "<rootDir>/src/pages/$1",
     "^~hooks/(.*)$": "<rootDir>/src/hooks/$1",
     "^~types/(.*)$": "<rootDir>/src/types/$1",
+    "^~util/(.*)$": "<rootDir>/src/util/$1",
   },
 };

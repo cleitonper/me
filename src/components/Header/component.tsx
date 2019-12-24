@@ -1,7 +1,36 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useRef } from 'react';
 import styled from 'styled-components';
-import { ThemeToggle } from '~components/ThemeToggle';
+import classnames from 'classnames';
 import { Logo } from '~components/Logo';
+import { ThemeToggle } from '~components/ThemeToggle';
+import { usePosition } from '~hooks/usePosition';
+import { usePrevious } from '~hooks/usePrevious';
+
+const Sticky = styled.div`
+  width: 100%;
+  height: var(--header-height);
+  padding: 16px;
+
+  background-color: var(--header-background);
+
+  position: fixed;
+  top: calc(var(--header-height) * -1);
+  left: 0;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow:
+    var(--header-shadow-offset-x)
+    var(--header-shadow-offset-y)
+    var(--header-shadow-blur)
+    var(--header-shadow-spread)
+    rgba(var(--header-shadow-color));
+
+  transition: transform var(--transition-default-timing, 450ms);
+`;
 
 const Container = styled.header`
   --header-background: var(--background-primary, #ffffff);
@@ -13,30 +42,40 @@ const Container = styled.header`
 
   width: 100%;
   height: var(--header-height);
-  padding: 16px;
-  background-color: var(--header-background);
-  box-shadow:
-    var(--header-shadow-offset-x)
-    var(--header-shadow-offset-y)
-    var(--header-shadow-blur)
-    var(--header-shadow-spread)
-    rgba(var(--header-shadow-color));
 
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
   position: relative;
   z-index: 20;
 
-  transition: all var(--transition-default-timing, 450ms);
+  transition: transform var(--transition-default-timing, 450ms);
+
+  &.static ${Sticky} {
+    position: static;
+  }
+
+  &.sticky ${Sticky} {
+    z-index: 20;
+    transform: translateY(100%);
+  }
 `;
 
-const Header: FunctionComponent = () => (
-  <Container>
-    <Logo />
-    <ThemeToggle />
-  </Container>
-);
+const Header: FunctionComponent = () => {
+  const headerRef = useRef(null);
+  const [, offsetY] = usePosition(headerRef);
+  const previousOffsetY = usePrevious<number>(offsetY) || 0;
+  const screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  const classNames = classnames({
+    sticky: (offsetY * -1) > screenHeight && (offsetY * -1) <= (previousOffsetY * -1),
+    static: (offsetY * -1) <= screenHeight - 200,
+  });
+
+  return (
+    <Container ref={headerRef} className={classNames} data-testid="header">
+      <Sticky>
+        <Logo />
+        <ThemeToggle />
+      </Sticky>
+    </Container>
+  );
+};
 
 export default Header;
