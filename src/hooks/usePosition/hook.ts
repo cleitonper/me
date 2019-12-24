@@ -31,7 +31,7 @@ export default function usePosition(element?: RefObject<HTMLElement | null>): Po
           : [0, 0];
 
       setPosition(currentPosition);
-    }, 2000);
+    }, 200);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);

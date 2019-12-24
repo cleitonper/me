@@ -1,1 +1,1 @@
-export { default as UsePosition } from './hook';
+export { default as usePosition } from './hook';
