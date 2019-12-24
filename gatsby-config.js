@@ -38,6 +38,7 @@ module.exports = {
           "~pages": "src/pages",
           "~hooks": "src/hooks",
           "~types": "src/types",
+          "~util": "src/util",
         },
         extensions: [
           "js",
