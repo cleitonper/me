@@ -55,21 +55,44 @@ const JobDescription = styled.p`
 const JobFooter = styled.footer`
   width: 100%;
   height: 48px;
-  padding: 12px 24px;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, .55);
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   bottom: 0;
   left: 0;
 
-  ${Tag} {
+  ${Tag}:not(:last-child) {
     margin-right: 8px;
+  }
+
+  @media (max-width: 479px) {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+
+    ::before,
+    ::after {
+      content: '';
+      display: inline-block;
+      min-width: 8px;
+      height: 1px;
+    }
+
+    ${Tag} {
+      flex: 1 1 auto;
+    }
+  }
+
+  @media (min-width: 480px) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px;
   }
 `;
 
