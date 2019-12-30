@@ -5,6 +5,7 @@ import {
   FaGitlab,
   FaWhatsapp,
   FaEnvelope,
+  FaLinkedinIn,
 } from 'react-icons/fa';
 
 const Container = styled.footer`
@@ -63,6 +64,9 @@ const Footer: FunctionComponent = () => (
     </FooterLink>
     <FooterLink href="javascript:void" title="Gitlab" aria-label="Gitlab">
       <FaGitlab />
+    </FooterLink>
+    <FooterLink href="javascript:void" title="Linkedin" aria-label="Linkedin">
+      <FaLinkedinIn />
     </FooterLink>
     <FooterLink href="javascript:void" title="Whatsapp" aria-label="Whatsapp">
       <FaWhatsapp />
