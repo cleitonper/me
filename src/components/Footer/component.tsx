@@ -18,10 +18,8 @@ const Container = styled.footer`
 
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 60px 16px;
   background-color: var(--background-secondary);
   box-shadow:
     var(--footer-shadow-offset-x)
@@ -29,6 +27,16 @@ const Container = styled.footer`
     var(--footer-shadow-blur)
     var(--footer-shadow-spread)
     rgba(var(--footer-shadow-color));
+
+    @media (max-width: 429px) {
+      padding: 30px 16px;
+      justify-content: flex-start;
+    }
+
+    @media (min-width: 430px) {
+      padding: 60px 16px;
+      justify-content: center;
+    }
 `;
 
 const FooterLink = styled.a`
@@ -43,18 +51,36 @@ const FooterLink = styled.a`
   border-style: solid;
   border-color: var(--foreground-secondary);
   color: var(--foreground-secondary);
-  font-size: 32px;
-  height: 60px;
-  width: 60px;
 
   :hover {
     border-color: var(--background-accent-tertiary);
     color: var(--background-accent-tertiary);
   }
 
-  :not(:last-child) {
-    margin-right: 24px;
+  @media (max-width: 429px) {
+    font-size: 12vw;
+    height: calc((100vw / 3) - (32px / 3) - 30px);
+    width: calc((100vw / 3) - (32px / 3) - 30px);
+    margin-bottom: 30px;
+
+    :nth-child(-n+3) {
+      margin-top: 30px;
+    }
+
+    :not(:nth-child(3n)) {
+      margin-right: 45px;
+    }
   }
+
+  @media (min-width: 430px) {
+    font-size: 32px;
+    height: 60px;
+    width: 60px;
+
+    :not(:last-child) {
+      margin-right: 24px;
+    }
+}
 `;
 
 const Footer: FunctionComponent = () => (
