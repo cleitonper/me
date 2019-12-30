@@ -5,11 +5,10 @@ import { Presentation } from '~components/Presentation';
 import { About } from '~components/About';
 import { Skills } from '~components/Skills';
 import { RecentWork } from '~components/RecentWork';
-import { FrontMatterQuery } from "~types/FrontMatterQuery";
-import { Props as Job } from '~components/BannerJob/types';
+import { HomeQuery } from "~src/types/HomeQuery";
 
 export interface Props {
-  data: FrontMatterQuery<Job>;
+  data: HomeQuery;
 }
 
 const HomePage: FunctionComponent<Props> = ({ data }) => {
@@ -26,6 +25,16 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
 
 export const query = graphql`
 query {
+  presentation: allFile(filter: {sourceInstanceName: {eq: "presentation"}}) {
+    nodes {
+      childMarkdownRemark {
+        frontmatter {
+          title
+        }
+        rawMarkdownBody
+      }
+    }
+  }
   jobs: allFile(filter: {sourceInstanceName: {eq: "jobs"}}, sort: {order: DESC, fields: modifiedTime}) {
     nodes {
       childMarkdownRemark {
