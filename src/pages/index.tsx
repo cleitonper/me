@@ -13,10 +13,17 @@ export interface Props {
 
 const HomePage: FunctionComponent<Props> = ({ data }) => {
   const jobs = data.jobs.nodes.map((node) => node.childMarkdownRemark.frontmatter);
+  const presentation = data.presentation.nodes.map(
+    (node) => ({
+      title: node.childMarkdownRemark.frontmatter.title,
+      content: node.childMarkdownRemark.rawMarkdownBody,
+    })
+  )[0];
+
   return (
     <LayoutDefault>
       <Presentation />
-      <About />
+      <About title={presentation.title} content={presentation.content} />
       <Skills />
       <RecentWork jobs={jobs} />
     </LayoutDefault>
