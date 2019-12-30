@@ -1,5 +1,5 @@
 export interface FrontMatterQuery<T> {
-  allFile: {
+  jobs: {
     nodes: {
       childMarkdownRemark: {
         frontmatter: T;

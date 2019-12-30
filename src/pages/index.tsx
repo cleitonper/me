@@ -13,7 +13,7 @@ export interface Props {
 }
 
 const HomePage: FunctionComponent<Props> = ({ data }) => {
-  const jobs = data.allFile.nodes.map((node) => node.childMarkdownRemark.frontmatter);
+  const jobs = data.jobs.nodes.map((node) => node.childMarkdownRemark.frontmatter);
   return (
     <LayoutDefault>
       <Presentation />
@@ -26,7 +26,7 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
 
 export const query = graphql`
 query {
-  allFile(filter: {sourceInstanceName: {eq: "jobs"}}, sort: {order: DESC, fields: modifiedTime}) {
+  jobs: allFile(filter: {sourceInstanceName: {eq: "jobs"}}, sort: {order: DESC, fields: modifiedTime}) {
     nodes {
       childMarkdownRemark {
         frontmatter {
