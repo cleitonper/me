@@ -62,7 +62,7 @@ const Skill: FunctionComponent<Props> = ({
   tools,
   icon,
 }) => (
-  <Container className={className}>
+  <Container data-testid="skill" className={className}>
     <FontAwesomeIcon icon={[icon.pack, icon.name]} className="icon" />
     <Title>{title}</Title>
     <Text>{description}</Text>
