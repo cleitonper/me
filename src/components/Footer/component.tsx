@@ -1,12 +1,6 @@
 import React, { FunctionComponent } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
-import {
-  FaGithub,
-  FaGitlab,
-  FaWhatsapp,
-  FaEnvelope,
-  FaLinkedinIn,
-} from 'react-icons/fa';
 
 const Container = styled.footer`
   --footer-background: var(--background-primary, #ffffff);
@@ -86,19 +80,19 @@ const FooterLink = styled.a`
 const Footer: FunctionComponent = () => (
   <Container>
     <FooterLink href="javascript:void" title="Github" aria-label="Github">
-      <FaGithub />
+      <FontAwesomeIcon icon={['fab', 'github']} />
     </FooterLink>
     <FooterLink href="javascript:void" title="Gitlab" aria-label="Gitlab">
-      <FaGitlab />
+      <FontAwesomeIcon icon={['fab', 'gitlab']} />
     </FooterLink>
     <FooterLink href="javascript:void" title="Linkedin" aria-label="Linkedin">
-      <FaLinkedinIn />
+      <FontAwesomeIcon icon={['fab', 'linkedin-in']} />
     </FooterLink>
     <FooterLink href="javascript:void" title="Whatsapp" aria-label="Whatsapp">
-      <FaWhatsapp />
+      <FontAwesomeIcon icon={['fab', 'whatsapp']} />
     </FooterLink>
     <FooterLink href="javascript:void" title="E-mail" aria-label="E-mail">
-      <FaEnvelope />
+      <FontAwesomeIcon icon={['fas', 'envelope']} />
     </FooterLink>
   </Container>
 );
