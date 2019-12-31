@@ -1,5 +1,5 @@
 import { Props as Job } from '~components/BannerJob/types';
-import { Props as Skills } from '~components/Skills/types';
+import { Props as Skill } from '~components/Skill/types';
 
 export interface HomeQuery {
   presentation: {
@@ -22,7 +22,7 @@ export interface HomeQuery {
   skills: {
     nodes: {
       childMarkdownRemark: {
-        frontmatter: Skills;
+        frontmatter: Skill & { order: number };
       };
     }[];
   };
