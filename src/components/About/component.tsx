@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
+import { Props } from './types';
 
 const Container = styled.section`
   display: flex;
@@ -28,20 +29,10 @@ const Text = styled.p`
   font-size: 18px;
 `;
 
-const About: FunctionComponent = () => (
-  <Container>
-    <Title>Apresentação</Title>
-    <Text>
-      Sempre fui um grande entusiasta da área de tecnologia.
-      Tive meus primeiros contatos com programação durante o
-      Ensino Médio e desde então busco sempre estar atualizado
-      com o que há de mais novo na área de desenvolvimento.
-      Acredito que um bom produto de software é aquele que
-      atende as nescessidades de seus usuários de maneira
-      simples e intuitiva, e que tenha um código fonte que
-      possa ser compreendido não somente por máquinas,
-      mas também por outros desenvolvedores.
-    </Text>
+const About: FunctionComponent<Props> = ({ title, content }) => (
+  <Container data-testid="about">
+    <Title>{title}</Title>
+    <Text>{content}</Text>
   </Container>
 );
 
