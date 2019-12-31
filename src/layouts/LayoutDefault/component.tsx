@@ -7,6 +7,7 @@ import '~assets/css/reset.css';
 import '~assets/css/variables.css';
 import '~assets/css/fonts.css';
 import '~assets/css/global.css';
+import '~assets/js/libs/fontawesome';
 
 const LayoutDefault: FunctionComponent = ({ children }) => (
   <Theme>
