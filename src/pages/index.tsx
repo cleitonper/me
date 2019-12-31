@@ -13,6 +13,7 @@ export interface Props {
 
 const HomePage: FunctionComponent<Props> = ({ data }) => {
   const jobs = data.jobs.nodes.map((node) => node.childMarkdownRemark.frontmatter);
+  const skills = data.skills.nodes.map((node) => node.childMarkdownRemark.frontmatter);
   const presentation = data.presentation.nodes.map(
     (node) => ({
       title: node.childMarkdownRemark.frontmatter.title,
@@ -24,7 +25,7 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
     <LayoutDefault>
       <Presentation />
       <About title={presentation.title} content={presentation.content} />
-      <Skills />
+      <Skills skills={skills} />
       <RecentWork jobs={jobs} />
     </LayoutDefault>
   );
@@ -52,6 +53,22 @@ query {
             background
             foreground
             name
+          }
+        }
+      }
+    }
+  }
+  skills: allFile(filter: {sourceInstanceName: {eq: "skills"}}) {
+    nodes {
+      childMarkdownRemark {
+        frontmatter {
+          order
+          title
+          description
+          tools
+          icon {
+            name
+            pack
           }
         }
       }
