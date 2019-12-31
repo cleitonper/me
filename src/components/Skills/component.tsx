@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
-import { FaPencilRuler, FaServer, FaHammer } from 'react-icons/fa';
 
 const Skill = styled.div`
   --border-opacity: ${({ theme }) => theme.name === 'light' ? 0.15 : 1};
@@ -115,7 +115,7 @@ const ListItem = styled.li`
 const Skills: FunctionComponent = () => (
   <Container>
     <Skill>
-      <FaPencilRuler className="icon" />
+      <FontAwesomeIcon icon={['fas', 'pencil-ruler']} className="icon" />
       <Title>Frontend</Title>
       <Text>
         Gosto de trabalhar com Design Clean,
@@ -134,7 +134,7 @@ const Skills: FunctionComponent = () => (
       </List>
     </Skill>
     <Skill>
-      <FaServer className="icon" />
+      <FontAwesomeIcon icon={['fas', 'server']} className="icon" />
       <Title>Backend</Title>
       <Text>
         Em uma aplicação dividada em responsabilidades,
@@ -153,7 +153,7 @@ const Skills: FunctionComponent = () => (
       </List>
     </Skill>
     <Skill>
-      <FaHammer className="icon" />
+      <FontAwesomeIcon icon={['fas', 'hammer']} className="icon" />
       <Title>Produtividade</Title>
       <Text>
         Algumas ferramentas que considero importantes no
