@@ -2,6 +2,9 @@ import React, { FunctionComponent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 
+import { Props } from './types';
+
+
 const Container = styled.footer`
   --footer-background: var(--background-primary, #ffffff);
   --footer-shadow-color: var(--shadow-color-rgba, 0, 0, 0, 0.25);
@@ -77,23 +80,21 @@ const FooterLink = styled.a`
 }
 `;
 
-const Footer: FunctionComponent = () => (
+const Footer: FunctionComponent<Props> = ({ networks }) => (
   <Container>
-    <FooterLink href="javascript:void" title="Github" aria-label="Github">
-      <FontAwesomeIcon icon={['fab', 'github']} />
-    </FooterLink>
-    <FooterLink href="javascript:void" title="Gitlab" aria-label="Gitlab">
-      <FontAwesomeIcon icon={['fab', 'gitlab']} />
-    </FooterLink>
-    <FooterLink href="javascript:void" title="Linkedin" aria-label="Linkedin">
-      <FontAwesomeIcon icon={['fab', 'linkedin-in']} />
-    </FooterLink>
-    <FooterLink href="javascript:void" title="Whatsapp" aria-label="Whatsapp">
-      <FontAwesomeIcon icon={['fab', 'whatsapp']} />
-    </FooterLink>
-    <FooterLink href="javascript:void" title="E-mail" aria-label="E-mail">
-      <FontAwesomeIcon icon={['fas', 'envelope']} />
-    </FooterLink>
+    {networks
+      .map((network, index) => (
+        <FooterLink
+          key={`network-${index}`}
+          href={network.link}
+          target="__blank"
+          title={network.title}
+          aria-label={network.title}
+        >
+          <FontAwesomeIcon icon={[network.icon.pack, network.icon.name]} />
+        </FooterLink>
+      ))
+    }
   </Container>
 );
 
