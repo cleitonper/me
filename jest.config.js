@@ -1,4 +1,5 @@
 module.exports = {
+  silent: true,
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
   globals: { __PATH_PREFIX__: ''  },
   testURL: 'http://localhost',
