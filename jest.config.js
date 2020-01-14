@@ -1,8 +1,5 @@
 module.exports = {
-  setupFilesAfterEnv: [
-    '@testing-library/jest-dom/extend-expect',
-    '@testing-library/react/cleanup-after-each',
-  ],
+  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
   globals: { __PATH_PREFIX__: ''  },
   testURL: 'http://localhost',
   transform: { '^.+\\.tsx?$': 'ts-jest'  },
