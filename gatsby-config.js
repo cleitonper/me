@@ -48,6 +48,15 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-tinacms',
+      options: {
+        plugins: [
+          'gatsby-tinacms-git',
+          'gatsby-tinacms-remark',
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {

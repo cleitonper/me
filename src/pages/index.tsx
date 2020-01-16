@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
+import { useLocalRemarkForm } from 'gatsby-tinacms-remark';
 import { LayoutDefault } from '~layouts/LayoutDefault';
 import { Presentation } from '~components/Presentation';
 import { About } from '~components/About';
@@ -12,19 +13,14 @@ export interface Props {
 }
 
 const HomePage: FunctionComponent<Props> = ({ data }) => {
+  const [presentation] = useLocalRemarkForm(data.presentation);
   const jobs = data.jobs.nodes.map((node) => node.childMarkdownRemark.frontmatter);
   const skills = data.skills.nodes.map((node) => node.childMarkdownRemark.frontmatter);
-  const presentation = data.presentation.nodes.map(
-    (node) => ({
-      title: node.childMarkdownRemark.frontmatter.title,
-      content: node.childMarkdownRemark.rawMarkdownBody,
-    })
-  )[0];
 
   return (
     <LayoutDefault>
       <Presentation />
-      <About title={presentation.title} content={presentation.content} />
+      {presentation && <About title={presentation.frontmatter.title} content={presentation.rawMarkdownBody} />}
       <Skills skills={skills} />
       <RecentWork jobs={jobs} />
     </LayoutDefault>
@@ -33,15 +29,13 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
 
 export const query = graphql`
 query {
-  presentation: allFile(filter: {sourceInstanceName: {eq: "presentation"}}) {
-    nodes {
-      childMarkdownRemark {
-        frontmatter {
-          title
-        }
-        rawMarkdownBody
-      }
+  presentation: markdownRemark (fileRelativePath:{ glob: "**/presentation.md"}) {
+    frontmatter {
+      title
     }
+    rawFrontmatter
+    rawMarkdownBody
+    fileRelativePath
   }
   jobs: allFile(filter: {sourceInstanceName: {eq: "jobs"}}, sort: {order: DESC, fields: modifiedTime}) {
     nodes {

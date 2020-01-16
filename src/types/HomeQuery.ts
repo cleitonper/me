@@ -3,14 +3,12 @@ import { Props as Skill } from '~components/Skill/types';
 
 export interface HomeQuery {
   presentation: {
-    nodes: {
-      childMarkdownRemark: {
-        frontmatter: {
-          title: string;
-        };
-        rawMarkdownBody: string;
-      };
-    }[];
+    frontmatter: {
+      title: string;
+    };
+    rawFrontmatter: string;
+    rawMarkdownBody: string;
+    fileRelativePath: string;
   };
   jobs: {
     nodes: {
