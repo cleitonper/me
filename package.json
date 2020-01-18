@@ -25,7 +25,7 @@
     "react-helmet": "^5.2.0",
     "react-icons": "^3.8.0",
     "classnames": "^2.2.6",
-    "gatsby": "^2.18.0",
+    "gatsby": "2.15.34",
     "gatsby-plugin-tinacms": "^0.1.18",
     "gatsby-tinacms-remark": "^0.6.2",
     "gatsby-tinacms-git": "^0.2.15",
