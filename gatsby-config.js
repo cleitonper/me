@@ -50,6 +50,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-tinacms',
       options: {
+        sidebar: { position: 'displace' },
         plugins: [
           'gatsby-tinacms-git',
           'gatsby-tinacms-remark',
