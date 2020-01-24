@@ -10,16 +10,17 @@ export interface HomeQuery {
     rawMarkdownBody: string;
     fileRelativePath: string;
   };
-  jobs: {
-    nodes: {
-      childMarkdownRemark: {
-        frontmatter: Job;
-      };
-    }[];
-  };
   skills: {
     frontmatter: {
       skills: Skill[];
+    };
+    rawFrontmatter: string;
+    rawMarkdownBody: string;
+    fileRelativePath: string;
+  };
+  jobs: {
+    frontmatter: {
+      jobs: Job[];
     };
     rawFrontmatter: string;
     rawMarkdownBody: string;

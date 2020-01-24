@@ -8,7 +8,10 @@ import { Skills } from '~components/Skills';
 import { RecentWork } from '~components/RecentWork';
 import { HomeQuery } from "~src/types/HomeQuery";
 
-import { skillsFormOptions } from '~config/tina/forms';
+import {
+  skillsFormOptions,
+  jobsFormOptions,
+} from '~config/tina/forms';
 export interface Props {
   data: HomeQuery;
 }
@@ -16,16 +19,17 @@ export interface Props {
 const HomePage: FunctionComponent<Props> = ({ data }) => {
   const [presentation] = useLocalRemarkForm(data.presentation);
   const [_skills] = useLocalRemarkForm(data.skills, skillsFormOptions);
-  const jobs = data.jobs.nodes.map((node) => node.childMarkdownRemark.frontmatter);
+  const [_jobs] = useLocalRemarkForm(data.jobs, jobsFormOptions);
 
   const skills = _skills?.frontmatter.skills;
+  const jobs = _jobs?.frontmatter.jobs;
 
   return (
     <LayoutDefault>
       <Presentation />
       {presentation && <About title={presentation.frontmatter.title} content={presentation.rawMarkdownBody} />}
       {skills && <Skills skills={skills} />}
-      <RecentWork jobs={jobs} />
+      {jobs && <RecentWork jobs={jobs} />}
     </LayoutDefault>
   );
 };
@@ -57,20 +61,21 @@ query {
     rawMarkdownBody
     fileRelativePath
   }
-  jobs: allFile(filter: {sourceInstanceName: {eq: "jobs"}}, sort: {order: DESC, fields: modifiedTime}) {
-    nodes {
-      childMarkdownRemark {
-        frontmatter {
-          description
-          image
-          tags {
-            background
-            foreground
-            name
-          }
+  jobs: markdownRemark(fileRelativePath: {glob: "**/jobs.md"}) {
+    frontmatter {
+      jobs {
+        description
+        image
+        tags {
+          background
+          foreground
+          name
         }
       }
     }
+    rawFrontmatter
+    rawMarkdownBody
+    fileRelativePath
   }
 }
 `;
