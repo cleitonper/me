@@ -7,6 +7,7 @@ export interface Tag {
 }
 
 export interface Props extends HTMLAttributes<HTMLElement> {
+  name?: string;
   image: string;
   description: string;
   className?: string;
