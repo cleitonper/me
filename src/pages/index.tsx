@@ -8,7 +8,10 @@ import { Skills } from '~components/Skills';
 import { RecentWork } from '~components/RecentWork';
 import { HomeQuery } from "~src/types/HomeQuery";
 
-import { skillsFormOptions } from '~config/tina/forms';
+import {
+  skillsFormOptions,
+  jobsFormOptions,
+} from '~config/tina/forms';
 export interface Props {
   data: HomeQuery;
 }
@@ -16,7 +19,7 @@ export interface Props {
 const HomePage: FunctionComponent<Props> = ({ data }) => {
   const [presentation] = useLocalRemarkForm(data.presentation);
   const [_skills] = useLocalRemarkForm(data.skills, skillsFormOptions);
-  const [_jobs] = useLocalRemarkForm(data.jobs);
+  const [_jobs] = useLocalRemarkForm(data.jobs, jobsFormOptions);
 
   const skills = _skills?.frontmatter.skills;
   const jobs = _jobs?.frontmatter.jobs;
