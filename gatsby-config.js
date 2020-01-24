@@ -55,6 +55,7 @@ module.exports = {
       options: {
         alias: {
           "~src": "src",
+          "~config": "config",
           "~assets": "src/assets",
           "~components": "src/components",
           "~templates": "src/templates",
