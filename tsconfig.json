@@ -11,6 +11,7 @@
     "baseUrl": "./src",
     "paths": {
       "~src/*": ["./*"],
+      "~config/*": ["../config/*"],
       "~assets/*": ["assets/*"],
       "~components/*": ["components/*"],
       "~templates/*": ["templates/*"],

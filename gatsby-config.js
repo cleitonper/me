@@ -23,14 +23,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'presentation',
-        path: `${__dirname}/src/content/presentation`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'skills',
-        path: `${__dirname}/src/content/skills`,
+        path: `${__dirname}/src/content/home`,
       },
     },
     {
@@ -48,10 +41,21 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-tinacms',
+      options: {
+        sidebar: { position: 'displace' },
+        plugins: [
+          'gatsby-tinacms-git',
+          'gatsby-tinacms-remark',
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
           "~src": "src",
+          "~config": "config",
           "~assets": "src/assets",
           "~components": "src/components",
           "~templates": "src/templates",
