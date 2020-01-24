@@ -62,7 +62,9 @@ const Header: FunctionComponent = () => {
   const headerRef = useRef(null);
   const [, offsetY] = usePosition(headerRef);
   const previousOffsetY = usePrevious<number>(offsetY) || 0;
-  const screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  const screenHeight = typeof document !== 'undefined' && typeof window !== 'undefined'
+    ? Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+    : 0;
   const classNames = classnames({
     sticky: (offsetY * -1) > screenHeight && (offsetY * -1) <= (previousOffsetY * -1),
     static: (offsetY * -1) <= screenHeight - 200,
