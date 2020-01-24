@@ -14,14 +14,16 @@ export interface Props {
 
 const HomePage: FunctionComponent<Props> = ({ data }) => {
   const [presentation] = useLocalRemarkForm(data.presentation);
+  const [_skills] = useLocalRemarkForm(data.skills);
   const jobs = data.jobs.nodes.map((node) => node.childMarkdownRemark.frontmatter);
-  const skills = data.skills.nodes.map((node) => node.childMarkdownRemark.frontmatter);
+
+  const skills = _skills?.frontmatter.skills;
 
   return (
     <LayoutDefault>
       <Presentation />
       {presentation && <About title={presentation.frontmatter.title} content={presentation.rawMarkdownBody} />}
-      <Skills skills={skills} />
+      {skills && <Skills skills={skills} />}
       <RecentWork jobs={jobs} />
     </LayoutDefault>
   );
@@ -37,6 +39,23 @@ query {
     rawMarkdownBody
     fileRelativePath
   }
+  skills: markdownRemark(fileRelativePath: {glob: "**/skills.md"}) {
+    frontmatter {
+      skills {
+        order
+        title
+        description
+        tools
+        icon {
+          name
+          pack
+        }
+      }
+    }
+    rawFrontmatter
+    rawMarkdownBody
+    fileRelativePath
+  }
   jobs: allFile(filter: {sourceInstanceName: {eq: "jobs"}}, sort: {order: DESC, fields: modifiedTime}) {
     nodes {
       childMarkdownRemark {
@@ -47,22 +66,6 @@ query {
             background
             foreground
             name
-          }
-        }
-      }
-    }
-  }
-  skills: allFile(filter: {sourceInstanceName: {eq: "skills"}}) {
-    nodes {
-      childMarkdownRemark {
-        frontmatter {
-          order
-          title
-          description
-          tools
-          icon {
-            name
-            pack
           }
         }
       }

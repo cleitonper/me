@@ -18,10 +18,11 @@ export interface HomeQuery {
     }[];
   };
   skills: {
-    nodes: {
-      childMarkdownRemark: {
-        frontmatter: Skill & { order: number };
-      };
-    }[];
+    frontmatter: {
+      skills: Skill[];
+    };
+    rawFrontmatter: string;
+    rawMarkdownBody: string;
+    fileRelativePath: string;
   };
 }
