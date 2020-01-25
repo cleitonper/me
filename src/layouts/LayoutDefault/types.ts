@@ -5,5 +5,8 @@ export interface Query {
     frontmatter: {
       social: Network[];
     };
+    rawFrontmatter: string;
+    rawMarkdownBody: string;
+    fileRelativePath: string;
   };
 }
