@@ -1,4 +1,4 @@
-import { Props as Skill } from '~components/Skill/types';
+import { Skill } from '~components/Skill/types';
 
 const skillsFormOptions = {
   label: 'Skills',

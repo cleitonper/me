@@ -1,5 +1,5 @@
-import { Props as Job } from '~components/BannerJob/types';
-import { Props as Tag } from '~components/Tag/types';
+import { Job } from '~components/BannerJob/types';
+import { Tag } from '~components/Tag/types';
 
 const name = {
   label: 'Nome',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Props as Job } from '~components/BannerJob/types';
+import { Job } from '~components/BannerJob/types';
 import { RecentWork } from '.';
 
 describe('Component: RecentWork', () => {

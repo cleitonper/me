@@ -1,5 +1,5 @@
-import { Props as Job } from '~components/BannerJob/types';
-import { Props as Skill } from '~components/Skill/types';
+import { Job }   from '~components/BannerJob/types';
+import { Skill } from '~components/Skill/types';
 
 export interface HomeQuery {
   presentation: {

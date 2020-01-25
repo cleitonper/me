@@ -1,7 +1,6 @@
 import { IconPrefix, IconName } from "@fortawesome/fontawesome-svg-core";
 
-export interface Props {
-  className?: string;
+export interface Skill {
   title: string;
   description: string;
   tools: string[];
@@ -9,4 +8,7 @@ export interface Props {
     pack: IconPrefix;
     name: IconName;
   };
+}
+export interface Props extends Skill {
+  className?: string;
 }

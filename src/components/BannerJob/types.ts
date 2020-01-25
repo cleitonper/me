@@ -1,15 +1,12 @@
 import { HTMLAttributes } from "react";
+import { Tag } from '~components/Tag/types';
 
-export interface Tag {
-  name: string;
-  background: string;
-  foreground: string;
-}
-
-export interface Props extends HTMLAttributes<HTMLElement> {
+export interface Job {
   name?: string;
   image: string;
   description: string;
-  className?: string;
   tags: Tag[];
+}
+export interface Props extends HTMLAttributes<HTMLElement>, Job {
+  className?: string;
 }
