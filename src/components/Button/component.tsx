@@ -5,25 +5,48 @@ import { Props } from './types';
 
 const Button: FunctionComponent<Props> = ({
   fill,
+  href,
   children,
   className,
   ...props
-}) => (
-  <button
-    {...props}
-    className={classNames(
-      className,
-      `fill-${fill}`,
-    )}
-  >
-    {children}
-  </button>
-);
+}) => {
+  const button =
+  (
+    <button
+      {...props}
+      className={classNames(
+        className,
+        `fill-${fill}`,
+      )}
+    >
+      {children}
+    </button>
+  );
+
+  const link =
+    (
+      <a
+        {...props}
+        href={href}
+        className={classNames(
+          className,
+          `fill-${fill}`,
+        )}
+      >
+        {children}
+      </a>
+    );
+
+  return href
+    ? link
+    : button;
+};
 
 Button.defaultProps = { fill: 'default' };
 
 const StyledButton = styled(Button)`
   cursor: pointer;
+  text-decoration: none;
   border-width: 1px;
   border-style: solid;
   transition: all var(--transition-default-timing);
