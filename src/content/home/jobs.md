@@ -1,8 +1,8 @@
 ---
-title: ''
 jobs:
   - name: IERF
     description: Site da Igreja Evangélica Rompendo em Fé
+    link: 'https://gitlab.com/cleitonper/ierf#readme'
     image: /img/jobs/fe.jpg
     tags:
       - name: '#frontend'
@@ -16,6 +16,7 @@ jobs:
         foreground: '#2C3E50'
   - name: Linear
     description: Calculadora de Sistemas de Equações Lineares
+    link: 'https://github.com/cleitonper/linear/#readme'
     image: /img/jobs/linear.jpg
     tags:
       - name: '#frontend'
@@ -29,6 +30,7 @@ jobs:
         foreground: '#EBF2F2'
   - name: Doom Fire
     description: Implementação em Vue do Fogo do jogo Doom
+    link: 'https://github.com/cleitonper/doom-fire-algorithm/#readme'
     image: /img/jobs/doom.jpg
     tags:
       - name: '#frontend'
@@ -42,6 +44,7 @@ jobs:
         foreground: '#EBF2F2'
   - name: Zupi
     description: Web API em Node com o framework Express
+    link: 'https://github.com/cleitonper/zupi/#readme'
     image: /img/jobs/zupi.jpg
     tags:
       - name: '#backend'
@@ -55,6 +58,7 @@ jobs:
         foreground: '#444444'
   - name: Zest
     description: Web API em Node com o framework Nest
+    link: 'https://github.com/cleitonper/zest/#readme'
     image: /img/jobs/zest.jpg
     tags:
       - name: '#backend'
@@ -68,6 +72,7 @@ jobs:
         foreground: '#e0234e'
   - name: DT3
     description: Home page da marca de Cadeiras Gamers DT3
+    link: 'https://github.com/cleitonper/dt3/#readme'
     image: /img/jobs/dt3.jpg
     tags:
       - name: '#html'

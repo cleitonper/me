@@ -67,6 +67,7 @@ query {
       jobs {
         description
         image
+        link
         tags {
           background
           foreground

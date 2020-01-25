@@ -4,6 +4,7 @@ import { Props } from './types';
 import { BannerJob } from '.';
 
 const props: Props = {
+  link: '#',
   image: 'fake.png',
   description: 'My Fake Job',
   tags: [
