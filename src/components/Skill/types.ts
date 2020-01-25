@@ -1,9 +1,12 @@
 import { IconPrefix, IconName } from "@fortawesome/fontawesome-svg-core";
 
+export interface Tool {
+  name: string;
+}
 export interface Skill {
   title: string;
   description: string;
-  tools: string[];
+  tools: Tool[];
   icon: {
     pack: IconPrefix;
     name: IconName;

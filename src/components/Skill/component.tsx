@@ -71,7 +71,7 @@ const Skill: FunctionComponent<Props> = ({
     </Subtitle>
     <List>
       {tools.map((tool, index) =>
-        <ListItem key={`tool-${index}`}>{tool}</ListItem>
+        <ListItem key={`tool-${index}`}>{tool.name}</ListItem>
       )}
     </List>
   </Container>

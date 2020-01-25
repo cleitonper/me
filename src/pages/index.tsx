@@ -49,7 +49,9 @@ query {
       skills {
         title
         description
-        tools
+        tools {
+          name
+        }
         icon {
           name
           pack

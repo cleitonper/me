@@ -10,11 +10,11 @@ skills:
       pack: fas
       name: pencil-ruler
     tools:
-      - HTML
-      - CSS
-      - Javascript
-      - Vue
-      - React
+      - name: HTML
+      - name: CSS
+      - name: Javascript
+      - name: Vue
+      - name: React
   - title: Backend
     description: |
       Em uma aplicação dividada em responsabilidades,
@@ -24,11 +24,11 @@ skills:
       pack: fas
       name: server
     tools:
-      - Node
-      - Express
-      - Nest
-      - MySQL
-      - MongoDB
+      - name: Node
+      - name: Express
+      - name: Nest
+      - name: MySQL
+      - name: MongoDB
   - title: Produtividade
     description: |
       Algumas ferramentas que considero importantes
@@ -38,9 +38,9 @@ skills:
       pack: fas
       name: hammer
     tools:
-      - Terminal Linux
-      - Visual Studio Code
-      - Typescript
-      - npm / yarn
-      - Git
+      - name: Terminal Linux
+      - name: Visual Studio Code
+      - name: Typescript
+      - name: npm / yarn
+      - name: Git
 ---
