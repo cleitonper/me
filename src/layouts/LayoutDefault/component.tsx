@@ -14,16 +14,14 @@ import { Query } from './types';
 
 const query = graphql`
 query FooterQuery {
-  allFile(filter: {sourceInstanceName: {eq: "social"}} sort: {fields: childMarkdownRemark___frontmatter___order, order: ASC}) {
-    nodes {
-      childMarkdownRemark {
-        frontmatter {
-          title
-          link
-          icon {
-            name
-            pack
-          }
+  markdownRemark(fileRelativePath: {glob: "**/social.md"}) {
+    frontmatter {
+      social {
+        title
+        link
+        icon {
+          name
+          pack
         }
       }
     }
@@ -33,7 +31,7 @@ query FooterQuery {
 
 const LayoutDefault: FunctionComponent = ({ children }) => {
   const data = useStaticQuery<Query>(query);
-  const networks = data.allFile.nodes.map((node) => node.childMarkdownRemark.frontmatter);
+  const networks = data.markdownRemark.frontmatter.social;
 
   return (
     <Theme>

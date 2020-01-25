@@ -29,8 +29,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'social',
-        path: `${__dirname}/src/content/social`,
+        name: 'shared-content',
+        path: `${__dirname}/src/content/shared`,
       },
     },
     {
