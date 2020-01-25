@@ -1,7 +1,7 @@
 ---
+title: ''
 skills:
-  - order: 1
-    title: Frontend
+  - title: Frontend
     description: |
       Gosto de trabalhar com Design Clean, com a
       arquitetura JAMStack e com desenvolvimento baseado
@@ -15,8 +15,7 @@ skills:
       - Javascript
       - Vue
       - React
-  - order: 2
-    title: Backend
+  - title: Backend
     description: |
       Em uma aplicação dividada em responsabilidades,
       o back-end deve ter o papel de gerenciamento de dados
@@ -30,8 +29,7 @@ skills:
       - Nest
       - MySQL
       - MongoDB
-  - order: 3
-    title: Produtividade
+  - title: Produtividade
     description: |
       Algumas ferramentas que considero importantes
       no desenvolvimento de uma aplicação, seja frontend

@@ -47,7 +47,6 @@ query {
   skills: markdownRemark(fileRelativePath: {glob: "**/skills.md"}) {
     frontmatter {
       skills {
-        order
         title
         description
         tools

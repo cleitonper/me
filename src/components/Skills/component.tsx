@@ -65,7 +65,6 @@ const Container = styled.section`
 const Skills: FunctionComponent<Props> = ({ skills }) => (
   <Container data-testid="skills">
     {skills
-      .sort((first, second) => first.order - second.order)
       .map(({ title, description, tools, icon }, index) =>
         <Skill
           key={index}
