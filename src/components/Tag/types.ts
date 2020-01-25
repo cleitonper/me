@@ -1,6 +1,9 @@
-export interface Props {
+export interface Tag {
   name?: string;
-  foreground: string;
   background: string;
+  foreground: string;
+}
+
+export interface Props extends Tag {
   className?: string;
 }
