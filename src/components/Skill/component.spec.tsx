@@ -10,7 +10,7 @@ describe('Component: Skill', () => {
     const props: Props = {
       title: 'My Title',
       description: 'My Description',
-      tools: ['1', '2'],
+      tools: [{ name: '1' }, { name: '2' }],
       icon: {
         pack: 'fas',
         name: 'hammer',
