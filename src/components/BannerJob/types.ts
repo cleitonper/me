@@ -3,6 +3,7 @@ import { Tag } from '~components/Tag/types';
 
 export interface Job {
   name?: string;
+  link: string;
   image: string;
   description: string;
   tags: Tag[];

@@ -15,6 +15,13 @@ const description = {
   component: 'textarea',
 };
 
+const link = {
+  label: 'Código fonte',
+  name: 'link',
+  description: 'Link para o repositório do projeto',
+  component: 'text',
+};
+
 const image = {
   label: 'Imagem',
   name: 'image',
@@ -71,7 +78,7 @@ const jobsFormOptions = {
           .toString(36)
           .substr(2, 9),
       }),
-      fields: [name, description, image, tags],
+      fields: [name, description, link, image, tags],
     }
   ],
 };

@@ -122,7 +122,14 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
-const BannerJob: FunctionComponent<Props> = ({ className, image, description, tags, ...props }) => {
+const BannerJob: FunctionComponent<Props> = ({
+  tags,
+  link,
+  image,
+  description,
+  className,
+  ...props
+}) => {
   const containerRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const open = (): void => setIsOpen(true);
@@ -144,7 +151,7 @@ const BannerJob: FunctionComponent<Props> = ({ className, image, description, ta
         <JobDescription>
           {description}
         </JobDescription>
-        <Button>Código Fonte</Button>
+        <Button href={link}>Código Fonte</Button>
         <JobFooter>
           {tags.map(
             (tag) =>
