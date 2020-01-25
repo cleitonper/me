@@ -6,10 +6,21 @@ import { Props } from './types';
 const Button: FunctionComponent<Props> = ({
   fill,
   href,
+  target,
+  rel,
   children,
   className,
   ...props
 }) => {
+  const _rel = !rel
+    ? 'noopener noreferrer nofollow'
+    : rel;
+
+  const _target = !target
+    ? '_blank'
+    : target;
+
+
   const button =
   (
     <button
@@ -18,6 +29,7 @@ const Button: FunctionComponent<Props> = ({
         className,
         `fill-${fill}`,
       )}
+      data-testid="button"
     >
       {children}
     </button>
@@ -28,10 +40,13 @@ const Button: FunctionComponent<Props> = ({
       <a
         {...props}
         href={href}
+        target={_target}
+        rel={_rel}
         className={classNames(
           className,
           `fill-${fill}`,
         )}
+        data-testid="button"
       >
         {children}
       </a>
