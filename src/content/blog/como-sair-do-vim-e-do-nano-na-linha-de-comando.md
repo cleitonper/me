@@ -3,7 +3,7 @@ title: Como sair do vim e do nano na linha de comando
 subtitle: |
   Descubra o que fazer quando se deparar com um editor
   de texto que não possui um botão de fechar
-date: 2020-26-01
+date: 2020-09-26T12:00Z
 ---
 Não sei por que você chegou até aqui, mas eu fiquei completamente
 perdido ao fazer meus primeiros `commits` no `git`. Se você é um
