@@ -1,4 +1,5 @@
 import { graphql } from 'gatsby';
+import { remarkForm } from 'gatsby-tinacms-remark';
 import React, { FunctionComponent } from 'react';
 import { LayoutDefault } from '~layouts/LayoutDefault';
 import { BlogPostQuery } from '~types/BlogPostQuery';
@@ -6,6 +7,7 @@ import { PostTitle } from '~components/PostTitle';
 import { PostSubtitle } from '~components/PostSubtitle';
 import { PostMeta } from '~components/PostMeta';
 import { PostContent } from '~components/PostContent';
+import { postFormOptions } from '~config/tina/forms';
 
 
 const BlogPost: FunctionComponent<BlogPostQuery> = ({ data }) => {
@@ -40,8 +42,9 @@ export const query = graphql`
         subtitle
         date(formatString: "DD [de] MMM [de] YYYY", locale: "pt-br")
       }
+      ...TinaRemark
     }
   }
 `;
 
-export default BlogPost;
+export default remarkForm(BlogPost, postFormOptions);
