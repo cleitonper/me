@@ -47,6 +47,7 @@ const Button: FunctionComponent<Props> = ({
         className={classNames(
           className,
           `fill-${fill}`,
+          size,
         )}
         data-testid="button"
       >
