@@ -4,9 +4,10 @@ import classNames from 'classnames';
 import { Props } from './types';
 
 const Button: FunctionComponent<Props> = ({
+  href,
   fill,
   size,
-  href,
+  shape,
   target,
   rel,
   children,
@@ -21,16 +22,18 @@ const Button: FunctionComponent<Props> = ({
     ? '_blank'
     : target;
 
+  const classes = classNames(
+    className,
+    `fill-${fill}`,
+    shape,
+    size,
+  );
 
   const button =
   (
     <button
       {...props}
-      className={classNames(
-        className,
-        `fill-${fill}`,
-        size,
-      )}
+      className={classes}
       data-testid="button"
     >
       {children}
@@ -44,10 +47,7 @@ const Button: FunctionComponent<Props> = ({
         href={href}
         target={_target}
         rel={_rel}
-        className={classNames(
-          className,
-          `fill-${fill}`,
-        )}
+        className={classes}
         data-testid="button"
       >
         {children}
@@ -60,6 +60,7 @@ const Button: FunctionComponent<Props> = ({
 };
 
 Button.defaultProps = {
+  shape: 'rect',
   fill: 'default',
   size: 'small',
 };
@@ -73,9 +74,9 @@ const StyledButton = styled(Button)`
   display: inline-block;
 
   &.fill-default {
-    background-color: var(--background-accent-primary);
-    border-color: var(--background-accent-primary);
-    color: var(--foreground-accent-primary);
+    background-color: ${(props) => props.background ? props.background : 'var(--background-accent-primary)'};
+    border-color: ${(props) => props.background ? props.background : 'var(--background-accent-primary)'};
+    color: ${(props) => props.foreground ? props.foreground : 'var(--foreground-accent-primary)'};
   }
 
   &.fill-clear {
@@ -102,6 +103,23 @@ const StyledButton = styled(Button)`
   &.big {
     font-size: 32px;
     padding: 16px 32px;
+  }
+
+  &.rounded {
+    border-radius: 24px;
+  }
+
+  &.round {
+    border-radius: 8px;
+  }
+
+  &.rect {
+    border-radius: 0px;
+  }
+
+  &:disabled {
+    opacity: 0.50;
+    cursor: not-allowed;
   }
 `;
 
