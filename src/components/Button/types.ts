@@ -9,4 +9,6 @@ export interface Props
   size?: 'small' | 'medium' | 'big';
   fill?: 'clear' | 'default';
   href?: string;
+  foreground?: string;
+  background?: string;
 }

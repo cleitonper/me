@@ -74,9 +74,9 @@ const StyledButton = styled(Button)`
   display: inline-block;
 
   &.fill-default {
-    background-color: var(--background-accent-primary);
-    border-color: var(--background-accent-primary);
-    color: var(--foreground-accent-primary);
+    background-color: ${(props) => props.background ? props.background : 'var(--background-accent-primary)'};
+    border-color: ${(props) => props.background ? props.background : 'var(--background-accent-primary)'};
+    color: ${(props) => props.foreground ? props.foreground : 'var(--foreground-accent-primary)'};
   }
 
   &.fill-clear {
