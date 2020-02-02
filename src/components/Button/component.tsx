@@ -116,6 +116,11 @@ const StyledButton = styled(Button)`
   &.rect {
     border-radius: 0px;
   }
+
+  &:disabled {
+    opacity: 0.50;
+    cursor: not-allowed;
+  }
 `;
 
 export default StyledButton;
