@@ -21,16 +21,17 @@ const Button: FunctionComponent<Props> = ({
     ? '_blank'
     : target;
 
+  const classes = classNames(
+    className,
+    `fill-${fill}`,
+    size,
+  );
 
   const button =
   (
     <button
       {...props}
-      className={classNames(
-        className,
-        `fill-${fill}`,
-        size,
-      )}
+      className={classes}
       data-testid="button"
     >
       {children}
@@ -44,11 +45,7 @@ const Button: FunctionComponent<Props> = ({
         href={href}
         target={_target}
         rel={_rel}
-        className={classNames(
-          className,
-          `fill-${fill}`,
-          size,
-        )}
+        className={classes}
         data-testid="button"
       >
         {children}
