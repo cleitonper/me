@@ -5,6 +5,7 @@ export interface Props
   Partial<ButtonHTMLAttributes<HTMLElement>>,
   Partial<AnchorHTMLAttributes<HTMLElement>> {
   type?: "reset" | "button" | "submit" | undefined;
+  shape?: 'rounded' | 'round' | 'rect';
   size?: 'small' | 'medium' | 'big';
   fill?: 'clear' | 'default';
   href?: string;
