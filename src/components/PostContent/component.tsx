@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Wysiwyg } from '@tinacms/fields';
 
-const PostContent = styled('div')`
+const style = css`
   padding: 0px 16px;
   margin-bottom: 32px;
   margin-top: 24px;
@@ -27,6 +28,10 @@ const PostContent = styled('div')`
     font-style: italic;
   }
 
+  strong {
+    font-weight: 700;
+  }
+
   code {
     color: #555555;
     font-size: 0.80em;
@@ -40,4 +45,5 @@ const PostContent = styled('div')`
   }
 `;
 
-export default PostContent;
+export default styled('div')`${style}`;
+export const PostContentEditor = styled(Wysiwyg)`${style}`;
