@@ -5,6 +5,7 @@ import { Props } from './types';
 
 const Button: FunctionComponent<Props> = ({
   fill,
+  size,
   href,
   target,
   rel,
@@ -28,6 +29,7 @@ const Button: FunctionComponent<Props> = ({
       className={classNames(
         className,
         `fill-${fill}`,
+        size,
       )}
       data-testid="button"
     >
@@ -57,7 +59,10 @@ const Button: FunctionComponent<Props> = ({
     : button;
 };
 
-Button.defaultProps = { fill: 'default' };
+Button.defaultProps = {
+  fill: 'default',
+  size: 'small',
+};
 
 const StyledButton = styled(Button)`
   cursor: pointer;
@@ -65,6 +70,7 @@ const StyledButton = styled(Button)`
   border-width: 1px;
   border-style: solid;
   transition: all var(--transition-default-timing);
+  display: inline-block;
 
   &.fill-default {
     background-color: var(--background-accent-primary);
@@ -81,6 +87,21 @@ const StyledButton = styled(Button)`
       background-color: rgba(var(--foreground-primary-rgb), 0.05);
       border-color: transparent;
     }
+  }
+
+  &.small {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  &.medium {
+    font-size: 24px;
+    padding: 12px 24px;
+  }
+
+  &.big {
+    font-size: 32px;
+    padding: 16px 32px;
   }
 `;
 
