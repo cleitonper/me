@@ -2,7 +2,9 @@
   "compilerOptions": {
     "strict": true,
     "noEmit": true,
+    "allowJs": false,
     "esModuleInterop": true,
+    "noImplicitAny": false,
     "skipLibCheck": true,
     "module": "commonjs",
     "target": "esnext",
@@ -29,5 +31,9 @@
   "include": [
     "./src/**/*",
     "node_modules/@testing-library/jest-dom/extend-expect.d.ts"
-  ]
+  ],
+  "exclude": [
+    "node_modules",
+    "./src/**/*.spec.tsx"
+  ],
 }

@@ -1,4 +1,6 @@
 export interface BlogPostQuery {
+  isEditing: boolean;
+  setIsEditing: (callback: (isEditing: boolean) => boolean) => boolean;
   data: {
     markdownRemark: {
       frontmatter: {
