@@ -9,6 +9,50 @@
   border-radius: 8px;
 }
 
+.gatsby-highlight pre[class*="language-"] {
+  position: relative;
+}
+
+.gatsby-highlight pre[class*="language-"]::before {
+  line-height: 1;
+  text-align: right;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  border-radius: 0px 0px 4px 4px;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  left: 1.5rem;
+  top: 0px;
+}
+
+.gatsby-highlight pre[class="language-html"]::before {
+  content: 'html';
+  background-color:#f16524;
+  color: #ffffff;
+}
+
+.gatsby-highlight pre[class="language-css"]::before {
+  content: 'css';
+  background-color:#29a9df;
+  color: #ffffff;
+}
+
+.gatsby-highlight pre[class="language-javascript"]::before {
+  content: 'js';
+  background-color:#f7df1e;
+  color: #000000;
+}
+
+.gatsby-highlight pre[class="language-typescript"]::before {
+  content: 'ts';
+  background-color: #007acc;
+  color: #ffffff;
+}
+
+
 code[class*="language-"],
 pre[class*="language-"] {
     color: var(--foreground-code);
@@ -48,7 +92,7 @@ code[class*="language-"] ::selection {
 
 /* Code blocks */
 pre[class*="language-"] {
-    padding: 1em;
+    padding: 2.15rem 1em 1em;
     margin: .5em 0;
     overflow: auto;
 }
