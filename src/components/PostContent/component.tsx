@@ -21,7 +21,7 @@ const style = css`
 
   a {
     text-decoration: none;
-    color: red;
+    color: var(--foreground-highlight);
   }
 
   em {
@@ -32,16 +32,27 @@ const style = css`
     font-weight: 700;
   }
 
-  code {
-    color: #555555;
+  a > code,
+  p > code {
+    background-color: var(--code-background);
+    white-space: nowrap;
     font-size: 0.80em;
-    background-color: rgba(150, 150, 150, 0.15);
     border-radius: 8px;
     padding: 0.30em 10px;
   }
 
-  a code {
-    color: red;
+  p > code {
+    color: var(--code-foreground);
+  }
+
+  a > code {
+    color: var(--foreground-highlight);
+  }
+
+  pre[class*="language-"],
+  code[class*="language-"],
+  div[class*="CodeMirror"] {
+    font-size: calc(12px + 1.35vw);
   }
 `;
 

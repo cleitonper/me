@@ -1,0 +1,178 @@
+/**
+ * prism.js light theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Cleiton
+ */
+
+.gatsby-highlight {
+  background-color: rgba(125, 150, 150, 0.10);
+  border-radius: 8px;
+}
+
+.gatsby-highlight pre[class*="language-"] {
+  position: relative;
+}
+
+.gatsby-highlight pre[class*="language-"]::before {
+  line-height: 1;
+  text-align: right;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  border-radius: 0px 0px 4px 4px;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  left: 1.5rem;
+  top: 0px;
+}
+
+.gatsby-highlight pre[class="language-html"]::before {
+  content: 'html';
+  background-color:#f16524;
+  color: #ffffff;
+}
+
+.gatsby-highlight pre[class="language-css"]::before {
+  content: 'css';
+  background-color:#29a9df;
+  color: #ffffff;
+}
+
+.gatsby-highlight pre[class="language-javascript"]::before {
+  content: 'js';
+  background-color:#f7df1e;
+  color: #000000;
+}
+
+.gatsby-highlight pre[class="language-typescript"]::before {
+  content: 'ts';
+  background-color: #007acc;
+  color: #ffffff;
+}
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: var(--foreground-code);
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 2.15rem 1em 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+
+/* Inline code */
+:not(pre)>code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.attr-name,
+.token.property {
+  color: #81a1c1;
+}
+
+.token.class-name,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #bf616a;
+}
+
+.token.tag,
+.token.selector,
+.token.atrule,
+.token.keyword,
+.token.operator,
+.token.entity {
+  color: #5e81ac;
+}
+
+.style .token.string,
+.language-css .token.string,
+.token.attr-value,
+.token.url,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #4caf50;
+}
+
+.token.function {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}

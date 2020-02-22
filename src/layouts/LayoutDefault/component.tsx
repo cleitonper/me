@@ -5,6 +5,7 @@ import { Header } from '~components/Header';
 import { Footer } from '~components/Footer';
 import { Theme } from '~components/Theme';
 import { SEO } from '~components/SEO';
+import '~assets/css/libs/prism.css';
 import '~assets/css/reset.css';
 import '~assets/css/variables.css';
 import '~assets/css/fonts.css';
