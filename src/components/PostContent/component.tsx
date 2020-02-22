@@ -32,7 +32,7 @@ const style = css`
     font-weight: 700;
   }
 
-  code {
+  p > code {
     color: #555555;
     font-size: 0.80em;
     background-color: rgba(150, 150, 150, 0.15);
@@ -42,6 +42,12 @@ const style = css`
 
   a code {
     color: red;
+  }
+
+  pre[class*="language-"],
+  code[class*="language-"],
+  div[class*="CodeMirror"] {
+    font-size: calc(12px + 1.35vw);
   }
 `;
 
