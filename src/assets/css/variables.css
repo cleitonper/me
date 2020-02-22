@@ -36,6 +36,11 @@
   --foreground-tertiary-rgb: 255, 255, 255;
   --foreground-accent-primary: #ffffff;
   --foreground-accent-primary-rgb: 255, 255, 255;
+  --foreground-highlight: #8C43FF;
+  --foreground-highlight-rgb: rgb(140, 67, 255);
+
+  --code-foreground: rgba(20, 20, 20, 0.75);
+  --code-background: rgba(150, 150, 150, 0.15);
 }
 
 :root[data-theme="dark"] {
@@ -63,4 +68,9 @@
   --foreground-tertiary-rgb: 255, 255, 255;
   --foreground-accent-primary: #ffffff;
   --foreground-accent-primary-rgb: 255, 255, 255;
+  --foreground-highlight: #8C43FF;
+  --foreground-highlight-rgb: rgb(140, 67, 255);
+
+  --code-foreground: rgba(200, 213, 255, 0.85);
+  --code-background: rgba(150, 150, 150, 0.15);
 }
