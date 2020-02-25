@@ -1,10 +1,13 @@
 import { graphql } from 'gatsby';
+import { withPlugin } from 'tinacms';
+import { RemarkCreatorPlugin } from 'gatsby-tinacms-remark';
 import React, { FunctionComponent } from 'react';
 import { LayoutDefault } from '~layouts/LayoutDefault';
 import { PageTitle } from '~components/PageTitle';
 import { PageSubtitle } from '~components/PageSubtitle';
 import { PostList } from '~components/PostList';
 import { PostsQuery } from '~types/PostsQuery';
+import { postCreatorOptions } from '~config/tina/forms';
 
 const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
   const posts = data.allFile.nodes.map((node) => ({
@@ -27,6 +30,8 @@ const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
   );
 };
 
+const CreatePostPlugin = new RemarkCreatorPlugin(postCreatorOptions);
+
 export const query = graphql`
 query PostsQuery {
   allFile(filter: {sourceInstanceName: {eq: "blog"}}) {
@@ -47,4 +52,4 @@ query PostsQuery {
 }
 `;
 
-export default BlogPage;
+export default withPlugin(BlogPage, CreatePostPlugin);

@@ -1,3 +1,5 @@
+import slugify from 'slugify';
+
 const title = {
   label: 'Título',
   name: 'rawFrontmatter.title',
@@ -24,9 +26,23 @@ const content = {
   component: 'markdown',
 };
 
-const postFormOptions = {
+const fields = [title, subtitle, date, content];
+
+export const postFormOptions = {
+  fields,
   label: 'Post',
-  fields: [title, subtitle, date, content],
 };
 
-export default postFormOptions;
+export const postCreatorOptions = {
+  fields,
+  label: 'Novo Post',
+  filename: (post) => {
+    const slug = slugify(post.rawFrontmatter.title, {
+      remove: /\./g,
+      lower: true,
+    });
+    return `src/content/blog/${slug}.md`;
+  },
+  frontmatter: (post) => ({ ...post.rawFrontmatter }),
+  body: (form) => form.rawMarkdownBody,
+};
