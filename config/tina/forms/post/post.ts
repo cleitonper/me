@@ -1,3 +1,4 @@
+import { DeleteAction } from 'gatsby-tinacms-remark';
 import slugify from 'slugify';
 
 const image = {
@@ -42,6 +43,7 @@ const fields = [image, title, subtitle, date, content];
 export const postFormOptions = {
   fields,
   label: 'Post',
+  actions: [DeleteAction],
 };
 
 export const postCreatorOptions = {
