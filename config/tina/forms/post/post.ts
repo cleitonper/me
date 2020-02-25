@@ -4,18 +4,21 @@ const image = {
   label: 'Imagem',
   name: 'rawFrontmatter.image',
   component: 'text',
+  required: true,
 };
 
 const title = {
   label: 'Título',
   name: 'rawFrontmatter.title',
   component: 'text',
+  required: true,
 };
 
 const subtitle = {
   label: 'Subtítulo',
   name: 'rawFrontmatter.subtitle',
   component: 'text',
+  required: true,
 };
 
 const date = {
@@ -24,12 +27,14 @@ const date = {
   component: 'date',
   dateFormat: 'DD/MM/YYYY',
   timeFormat: false,
+  required: true,
 };
 
 const content = {
   label: 'Conteúdo',
   name: 'rawMarkdownBody',
   component: 'markdown',
+  required: true,
 };
 
 const fields = [image, title, subtitle, date, content];
