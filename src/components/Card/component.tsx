@@ -4,6 +4,8 @@ import { Props } from './types';
 
 const Container = styled('div')`
   box-shadow: 0 2px 4px rgba(0,0,0,0.13);
+  display: flex;
+  flex-flow: column wrap;
 
   img {
     width: 100%;
@@ -13,7 +15,11 @@ const Container = styled('div')`
   }
 
   article {
+    width: 100%;
     padding: 8px 12px 32px;
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column wrap;
   }
 
   span {
@@ -41,6 +47,7 @@ const Container = styled('div')`
     font-size: 1.15rem;
     text-decoration: none;
     color: var(--foreground-highlight);
+    margin-top: auto;
   }
 `;
 
