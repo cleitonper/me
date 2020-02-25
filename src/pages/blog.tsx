@@ -8,7 +8,7 @@ import { PostsQuery } from '~types/PostsQuery';
 
 const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
   const posts = data.allFile.nodes.map((node) => ({
-    link: `/blog/${node.childMarkdownRemark.fields.slug}`,
+    link: `/blog${node.childMarkdownRemark.fields.slug}`,
     ...node.childMarkdownRemark.frontmatter
   }));
 
