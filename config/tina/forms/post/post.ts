@@ -1,5 +1,11 @@
 import slugify from 'slugify';
 
+const image = {
+  label: 'Imagem',
+  name: 'rawFrontmatter.image',
+  component: 'text',
+};
+
 const title = {
   label: 'Título',
   name: 'rawFrontmatter.title',
@@ -26,7 +32,7 @@ const content = {
   component: 'markdown',
 };
 
-const fields = [title, subtitle, date, content];
+const fields = [image, title, subtitle, date, content];
 
 export const postFormOptions = {
   fields,
