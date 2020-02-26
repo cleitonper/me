@@ -6,16 +6,23 @@ import { Button } from '~components/Button';
 import { Mouse } from '~components/Mouse';
 import { Props } from './types';
 
-const Presentation: FunctionComponent<Props> = ({ className }) => (
-  <section className={className}>
-    <Avatar src={me} alt="Eu" />
-    <h1 className="name">Cleiton da Silva</h1>
-    <span className="role">Desenvolvedor Javascript</span>
-    <span className="location">Rio de Janeiro, RJ</span>
-    <Button>Contato</Button>
-    <Mouse />
-  </section>
-);
+const Presentation: FunctionComponent<Props> = ({ className }) => {
+  const scrollToFooter = (): void => {
+    if(typeof window === undefined || typeof document === undefined) return;
+    window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+  };
+
+  return (
+    <section className={className}>
+      <Avatar src={me} alt="Eu" />
+      <h1 className="name">Cleiton da Silva</h1>
+      <span className="role">Desenvolvedor Javascript</span>
+      <span className="location">Rio de Janeiro, RJ</span>
+      <Button onClick={scrollToFooter}>Contato</Button>
+      <Mouse />
+    </section>
+  );
+};
 
 const StyledPresentation = styled(Presentation)`
   width: 100%;
