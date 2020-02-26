@@ -46,7 +46,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-tinacms',
       options: {
-        sidebar: { position: 'displace' },
+        sidebar: {
+          position: 'displace',
+          hidden: process.env.NETLIFY
+        },
         plugins: [
           'gatsby-tinacms-git',
           'gatsby-tinacms-remark',
