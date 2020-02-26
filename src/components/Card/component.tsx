@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
+import { Button } from '~components/Button';
 import { Props } from './types';
 
 const Container = styled('div')`
@@ -20,6 +21,9 @@ const Container = styled('div')`
     flex-grow: 1;
     display: flex;
     flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
   }
 
   span {
@@ -47,6 +51,7 @@ const Container = styled('div')`
     font-size: 1.15rem;
     text-decoration: none;
     color: var(--foreground-highlight);
+    transform: translateX(-16px);
     margin-top: auto;
   }
 `;
@@ -66,9 +71,9 @@ const Card: FunctionComponent<Props> = ({
       <h3>{ title }</h3>
       <p>{subtitle}</p>
 
-      <a href={link}>
+      <Button href={link} fill="clear" foreground="var(--foreground-highlight)">
         Ir para o artigo
-      </a>
+      </Button>
     </article>
   </Container>
 );
