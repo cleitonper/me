@@ -1,5 +1,6 @@
 import { Job }   from '~components/BannerJob/types';
 import { Skill } from '~components/Skill/types';
+import { Post }  from '~components/PostList/types';
 
 export interface HomeQuery {
   presentation: {
@@ -26,4 +27,11 @@ export interface HomeQuery {
     rawMarkdownBody: string;
     fileRelativePath: string;
   };
+  posts: {
+    nodes: {
+      childMarkdownRemark: {
+        frontmatter: Post;
+        fields: { slug: string };
+      };
+    }[];
 }

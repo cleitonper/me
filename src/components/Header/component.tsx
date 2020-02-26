@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React, { FunctionComponent, useRef } from 'react';
 import styled from 'styled-components';
 import classnames from 'classnames';
@@ -73,7 +74,9 @@ const Header: FunctionComponent = () => {
   return (
     <Container ref={headerRef} className={classNames} data-testid="header">
       <Sticky>
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
         <ThemeToggle />
       </Sticky>
     </Container>

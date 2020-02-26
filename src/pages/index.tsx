@@ -5,6 +5,10 @@ import { LayoutDefault } from '~layouts/LayoutDefault';
 import { Presentation } from '~components/Presentation';
 import { About } from '~components/About';
 import { Skills } from '~components/Skills';
+import { PostList } from '~components/PostList';
+import { SectionTitle } from '~components/SectionTitle';
+import { SectionDescription } from '~components/SectionDescription';
+import { Button } from '~components/Button';
 import { RecentWork } from '~components/RecentWork';
 import { HomeQuery } from "~src/types/HomeQuery";
 
@@ -25,12 +29,39 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
   const skills = _skills?.frontmatter.skills;
   const jobs = _jobs?.frontmatter.jobs;
 
+  const posts = data.posts.nodes.map((node) => ({
+    link: `/blog${node.childMarkdownRemark.fields.slug}`,
+    ...node.childMarkdownRemark.frontmatter
+  }));
+
   return (
     <LayoutDefault>
       <Presentation />
+
       {_presentation && <About title={_presentation.frontmatter.title} content={_presentation.rawMarkdownBody} />}
+
       {skills && <Skills skills={skills} />}
+
+      <SectionTitle>
+        Trabalhos Recentes
+      </SectionTitle>
+      <SectionDescription>
+        Confira aqui alguns projetos que
+        desenvolvi recentemente.
+      </SectionDescription>
       {jobs && <RecentWork jobs={jobs} />}
+
+      <SectionTitle>
+        Blog
+      </SectionTitle>
+      <SectionDescription>
+        Artigos sobre javascript e desenvolvimento web.
+      </SectionDescription>
+      <PostList posts={posts} />
+
+      <div style={{ textAlign: 'center', transform: 'translateY(-120px)' }}>
+        <Button href="/blog" size="medium">Ver tudo</Button>
+      </div>
     </LayoutDefault>
   );
 };
@@ -79,6 +110,21 @@ query {
     rawFrontmatter
     rawMarkdownBody
     fileRelativePath
+  }
+  posts: allFile(filter: {sourceInstanceName: {eq: "blog"}}, limit: 3, sort: {fields: birthTime, order: ASC}) {
+    nodes {
+      childMarkdownRemark {
+        frontmatter {
+          date(formatString: "DD [de] MMMM", locale: "pt-br")
+          title
+          subtitle
+          image
+        }
+        fields {
+          slug
+        }
+      }
+    }
   }
 }
 `;
