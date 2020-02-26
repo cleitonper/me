@@ -105,7 +105,7 @@ const StyledButton = styled(Button)`
   &.fill-clear {
     background-color: transparent;
     border-color: transparent;
-    color: var(--foreground-primary);
+    color: ${(props) => props.foreground ? props.foreground : 'var(--foreground-accent-primary)'};
 
     :hover {
       background-color: rgba(var(--foreground-primary-rgb), 0.05);
