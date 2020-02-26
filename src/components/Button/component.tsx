@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
@@ -14,13 +15,23 @@ const Button: FunctionComponent<Props> = ({
   className,
   ...props
 }) => {
-  const _rel = !rel
-    ? 'noopener noreferrer nofollow'
-    : rel;
+  const linkType = !href
+    ? null
+    : href.startsWith('/')
+      ? 'internal'
+      : 'external';
 
-  const _target = !target
-    ? '_blank'
-    : target;
+  const _rel = rel
+    ? rel
+    : linkType === 'external'
+      ? 'noopener noreferrer nofollow'
+      : '';
+
+  const _target = target
+    ? target
+    : linkType === 'external'
+      ? '_blank'
+      : '';
 
   const classes = classNames(
     className,
@@ -40,7 +51,7 @@ const Button: FunctionComponent<Props> = ({
     </button>
   );
 
-  const link =
+  const externalLink =
     (
       <a
         {...props}
@@ -54,9 +65,21 @@ const Button: FunctionComponent<Props> = ({
       </a>
     );
 
-  return href
-    ? link
-    : button;
+  const internalLink = (
+    <Link
+      className={classes}
+      to={href || '/'}
+      replace
+    >
+      {children}
+    </Link>
+  );
+
+  return !href
+    ? button
+    : linkType === 'internal'
+      ? internalLink
+      : externalLink;
 };
 
 Button.defaultProps = {
