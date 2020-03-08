@@ -2,7 +2,6 @@ import { graphql } from 'gatsby';
 import { inlineRemarkForm } from 'gatsby-tinacms-remark';
 import { TinaField } from '@tinacms/form-builder';
 import React, { FunctionComponent } from 'react';
-import { LayoutDefault } from '~layouts/LayoutDefault';
 import { BlogPostQuery } from '~types/BlogPostQuery';
 import { PostTitle } from '~components/PostTitle';
 import { PostSubtitle } from '~components/PostSubtitle';
@@ -18,7 +17,7 @@ const BlogPost: FunctionComponent<BlogPostQuery> = ({ data, isEditing, setIsEdit
   const { title, subtitle, date } = markdownRemark.frontmatter;
 
   return (
-    <LayoutDefault>
+    <>
       <PostTitle>
         {title}
       </PostTitle>
@@ -36,7 +35,7 @@ const BlogPost: FunctionComponent<BlogPostQuery> = ({ data, isEditing, setIsEdit
           {isEditing ? 'Preview' : 'Editar Página'}
         </Button>
       </div>
-    </LayoutDefault>
+    </>
   );
 
 };

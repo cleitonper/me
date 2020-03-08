@@ -18,6 +18,7 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-layout',
     {
       resolve: 'gatsby-transformer-remark',
       options: { plugins: ['gatsby-remark-prismjs'] },

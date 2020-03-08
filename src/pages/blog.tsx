@@ -2,7 +2,6 @@ import { graphql } from 'gatsby';
 import { withPlugin } from 'tinacms';
 import { RemarkCreatorPlugin } from 'gatsby-tinacms-remark';
 import React, { FunctionComponent } from 'react';
-import { LayoutDefault } from '~layouts/LayoutDefault';
 import { PageTitle } from '~components/PageTitle';
 import { PageSubtitle } from '~components/PageSubtitle';
 import { PostList } from '~components/PostList';
@@ -16,7 +15,7 @@ const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
   }));
 
   return (
-    <LayoutDefault>
+    <>
       <PageTitle>
         Blog
       </PageTitle>
@@ -26,7 +25,7 @@ const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
         linguagem da web.
       </PageSubtitle>
       <PostList posts={posts} />
-    </LayoutDefault>
+    </>
   );
 };
 

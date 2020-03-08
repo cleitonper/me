@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { useLocalRemarkForm } from 'gatsby-tinacms-remark';
-import { LayoutDefault } from '~layouts/LayoutDefault';
 import { Presentation } from '~components/Presentation';
 import { About } from '~components/About';
 import { Skills } from '~components/Skills';
@@ -35,7 +34,7 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
   }));
 
   return (
-    <LayoutDefault>
+    <>
       <Presentation />
 
       {_presentation && <About title={_presentation.frontmatter.title} content={_presentation.rawMarkdownBody} />}
@@ -62,7 +61,7 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
       <div style={{ textAlign: 'center', transform: 'translateY(-120px)' }}>
         <Button href="/blog" size="medium">Ver tudo</Button>
       </div>
-    </LayoutDefault>
+    </>
   );
 };
 

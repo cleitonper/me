@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useGlobalRemarkForm } from 'gatsby-tinacms-remark';
+import { Network } from '~components/Footer/types';
 import { Header } from '~components/Header';
 import { Footer } from '~components/Footer';
 import { Theme } from '~components/Theme';
@@ -12,9 +13,18 @@ import '~assets/css/fonts.css';
 import '~assets/css/global.css';
 import '~assets/js/libs/fontawesome';
 
-import { Query } from './types';
-
 import { socialFormOptions } from '~config/tina/forms';
+
+export interface Query {
+  markdownRemark: {
+    frontmatter: {
+      social: Network[];
+    };
+    rawFrontmatter: string;
+    rawMarkdownBody: string;
+    fileRelativePath: string;
+  };
+}
 
 const query = graphql`
 query FooterQuery {
