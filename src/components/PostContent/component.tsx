@@ -6,9 +6,18 @@ const style = css`
   margin-bottom: 32px;
   margin-top: 24px;
 
-  p {
-    margin-bottom: 1em;
+  ul {
+    list-style-type: square;
+    margin-bottom: 3rem;
+    margin-left: 4.2em;
+  }
+
+  p, li {
     font-size: calc(14px + 1.50vw);
+  }
+
+  p, li {
+    margin-bottom: 1em;
     line-height: 1.45em;
   }
 
