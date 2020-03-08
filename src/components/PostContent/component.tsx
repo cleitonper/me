@@ -7,17 +7,29 @@ const style = css`
   margin-top: 24px;
 
   p {
-    margin-bottom: 8px;
-    font-size: calc(14px + 2vw);
+    margin-bottom: 1em;
+    font-size: calc(14px + 1.50vw);
     line-height: 1.45em;
   }
 
-  h3 {
+  h3, h4, h5, h6 {
     margin: 1em 0px 0.10em;
     line-height: 1.45em;
-    font-size: calc(16px + 3vw);
     font-weight: 700;
   }
+
+  h3 {
+    font-weight: 700;
+  }
+
+  h4, h5, h6 {
+    font-weight: 500;
+  }
+
+  h3 { font-size: calc(24px + 3vw); }
+  h4 { font-size: calc(20px + 2.50vw); }
+  h5 { font-size: calc(16px + 2.30vw); }
+  h6 { font-size: calc(14px + 2vw); }
 
   a {
     text-decoration: none;
