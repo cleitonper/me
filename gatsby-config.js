@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     name: 'Cleiton',
-    title: 'Web Developer',
+    title: 'Desenvolvedor Web',
     titleTemplate: "Cleiton · %s",
     description:
       'Site de um desenvolvedor javascript, ' +

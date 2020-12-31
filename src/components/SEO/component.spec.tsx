@@ -6,7 +6,7 @@ import { Props } from './types';
 
 const metadata = {
   siteName: 'Cleiton',
-  title: 'Cleiton · Web Developer',
+  title: 'Cleiton · Desenvolvedor Web',
   description:
     'Site de um desenvolvedor javascript, ' +
     'entuasiasta de novas tecnologias do mundo de desenvolvimento web ' +
@@ -22,7 +22,7 @@ const metadata = {
 jest.mock('gatsby', () => {
   const siteMetadata = {
     name: 'Cleiton',
-    title: 'Web Developer',
+    title: 'Desenvolvedor Web',
     titleTemplate: "Cleiton · %s",
     description:
       'Site de um desenvolvedor javascript, ' +

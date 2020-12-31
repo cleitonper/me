@@ -16,7 +16,7 @@ const Presentation: FunctionComponent<Props> = ({ className }) => {
     <section className={className}>
       <Avatar src={me} alt="Eu" />
       <h1 className="name">Cleiton da Silva</h1>
-      <span className="role">Desenvolvedor Javascript</span>
+      <span className="role">Desenvolvedor Web</span>
       <span className="location">Rio de Janeiro, RJ</span>
       <a
         className="job"
