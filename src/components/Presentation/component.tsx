@@ -22,10 +22,10 @@ const Presentation: FunctionComponent<Props> = ({ className }) => {
         className="job"
         target="_blank"
         rel="noopener noreferrer"
-        href="https://dt3.com.br"
-        title="Atualmente trabalhando na empresa DT3"
+        href="#"
+        title=""
       >
-        DT3
+        -
       </a>
       <Button onClick={scrollToFooter}>Contato</Button>
       <Mouse />
@@ -72,12 +72,15 @@ const StyledPresentation = styled(Presentation)`
   }
 
   .job {
-    margin-bottom: 60px;
     text-decoration: none;
     color: var(--foreground-primary);
     transition: color 250ms;
     font-weight: 500;
     font-size: 16px;
+
+    &[title=""] {
+      display: none;
+    }
   }
 
   .job:hover {
@@ -88,6 +91,7 @@ const StyledPresentation = styled(Presentation)`
     font-size: 20px;
     font-weight: 700;
     text-transform: uppercase;
+    margin-top: 60px;
     margin-bottom: 60px;
     padding: 8px 34px;
   }
