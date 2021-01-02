@@ -26,7 +26,7 @@
     "react-icons": "^3.8.0",
     "classnames": "^2.2.6",
     "prismjs": "^1.19.0",
-    "gatsby": "2.15.34",
+    "gatsby": "2.29.0",
     "slugify": "^1.3.6",
     "gatsby-plugin-tinacms": "^0.1.21",
     "gatsby-tinacms-remark": "^0.7.0",
