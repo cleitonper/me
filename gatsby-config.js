@@ -75,6 +75,12 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        precachePages: ['/', '/blog/*'],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
