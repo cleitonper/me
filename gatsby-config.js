@@ -58,6 +58,29 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        lang: 'pt-BR',
+        start_url: '/',
+        short_name: 'Cleiton',
+        name: 'Cleiton · Desenvolvedor Web',
+        description:
+          'Site de um desenvolvedor javascript, ' +
+          'entuasiasta de novas tecnologias do mundo de desenvolvimento web ' +
+          'e fã de destribuições Linux.',
+        icon: 'src/assets/img/logo.svg',
+        background_color: '#FFFFFF',
+        theme_color: '#000000',
+        display: 'standalone',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        precachePages: ['/', '/blog/*'],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
