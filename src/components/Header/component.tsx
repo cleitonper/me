@@ -68,7 +68,7 @@ const Header: FunctionComponent = () => {
     : 0;
   const classNames = classnames({
     sticky: (offsetY * -1) > screenHeight && (offsetY * -1) <= (previousOffsetY * -1),
-    static: (offsetY * -1) <= screenHeight - 200,
+    static: (offsetY * -1) <= screenHeight - 200 || screenHeight === 0,
   });
 
   return (
