@@ -61,14 +61,23 @@ const Container = styled.header`
 
 const Header: FunctionComponent = () => {
   const headerRef = useRef(null);
+
   const [, offsetY] = usePosition(headerRef);
   const previousOffsetY = usePrevious<number>(offsetY) || 0;
-  const screenHeight = typeof document !== 'undefined' && typeof window !== 'undefined'
-    ? Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+
+  const isRendered = typeof document !== 'undefined' && typeof window !== 'undefined';
+
+  const screenHeight = isRendered
+    ? Math.max(document.documentElement.clientHeight, window.innerHeight, 0)
     : 0;
+
+  const isInsidePresentationArea = offsetY <= screenHeight - 200;
+  const isBelowPresentationArea = offsetY > screenHeight;
+  const isScrollingToTop = offsetY <= previousOffsetY;
+
   const classNames = classnames({
-    sticky: offsetY > screenHeight && offsetY <= previousOffsetY,
-    static: offsetY <= screenHeight - 200 || screenHeight === 0,
+    sticky: isBelowPresentationArea && isScrollingToTop,
+    static: isInsidePresentationArea || !isRendered,
   });
 
   return (
