@@ -17,7 +17,7 @@ describe('Component: Header', () => {
 
   describe('inside presentation area', () => {
     it('should be static', () => {
-      jest.spyOn(position, 'usePosition').mockImplementation(() => [0, -300]);
+      jest.spyOn(position, 'usePosition').mockImplementation(() => [0, 300]);
       jest.spyOn(document.documentElement, 'scrollHeight', 'get').mockImplementation(() => 600);
       const { getByTestId } = render(
         <Theme>
@@ -34,8 +34,8 @@ describe('Component: Header', () => {
     });
 
     it('should not be sticky when scrolling to bottom', () => {
-      jest.spyOn(position, 'usePosition').mockImplementation(() => [0, -1750]);
-      jest.spyOn(previous, 'usePrevious').mockImplementation(() => -1600);
+      jest.spyOn(position, 'usePosition').mockImplementation(() => [0, 1750]);
+      jest.spyOn(previous, 'usePrevious').mockImplementation(() => 1600);
       const { getByTestId } = render(
         <Theme>
           <Header />
@@ -45,8 +45,8 @@ describe('Component: Header', () => {
     });
 
     it('should be sticky when scrolling to top', () => {
-      jest.spyOn(position, 'usePosition').mockImplementation(() => [0, -1600]);
-      jest.spyOn(previous, 'usePrevious').mockImplementation(() => -1750);
+      jest.spyOn(position, 'usePosition').mockImplementation(() => [0, 1600]);
+      jest.spyOn(previous, 'usePrevious').mockImplementation(() => 1750);
       const { getByTestId } = render(
         <Theme>
           <Header />

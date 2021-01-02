@@ -4,11 +4,13 @@ import { Position } from './types';
 import { throttle } from "~util/throttle";
 
 const getPosition = (element?: HTMLElement): Position => {
-  const rect = element
-    ? element.getBoundingClientRect()
+  const rect = element && element.getBoundingClientRect();
+
+  const position = rect
+    ? { left: Math.abs(rect.left), top: Math.abs(rect.top) }
     : { left: window.pageXOffset, top: window.pageYOffset };
 
-  return [rect.left, rect.top];
+  return [position.left, position.top];
 };
 
 /**
