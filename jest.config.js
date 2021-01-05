@@ -1,11 +1,14 @@
 module.exports = {
   silent: true,
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
   globals: { __PATH_PREFIX__: ''  },
   testURL: 'http://localhost',
   transform: { '^.+\\.tsx?$': 'ts-jest'  },
   transformIgnorePatterns: ['node_modules/(?!(gatsby)/)'],
   testRegex: '(/src/.*|)\\.spec\\.(ts|tsx)$',
+  setupFilesAfterEnv: [
+    '@testing-library/jest-dom/extend-expect',
+    '<rootDir>/config/jest/mock/matchMedia.ts',
+  ],
   testPathIgnorePatterns: [
     'node_modules',
     '.cache',

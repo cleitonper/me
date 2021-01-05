@@ -1,37 +1,31 @@
-import React from 'react';
-import { ThemeContext } from 'styled-components';
-import { render, fireEvent } from '@testing-library/react';
-import { Helmet } from 'react-helmet';
-import { Theme } from '.';
-
 describe('Component: Theme', () => {
-  it('should use light as default theme', () => {
-    render(<Theme />);
-    expect(Helmet.peek().htmlAttributes).toHaveProperty('data-theme', 'light');
+  describe('System: prefer dark mode', () => {
+    it('should initialize with app preferred mode by default', () => {
+      expect(true).toBe(false);
+    });
+
+    it('should initialize with dark mode when there is not an app preferred mode', () => {
+      expect(true).toBe(false);
+    });
   });
 
-  it('should change theme to dark', () => {
-    const { getByText } = render(
-      <Theme>
-        <ThemeContext.Consumer>
-          {(theme) => <button onClick={theme.toggle}>toggle</button>}
-        </ThemeContext.Consumer>
-      </Theme>
-    );
-    fireEvent.click(getByText('toggle'));
-    expect(Helmet.peek().htmlAttributes).toHaveProperty('data-theme', 'dark');
+  describe('System: prefer light mode', () => {
+    it('should initialize with app preferred mode by default', () => {
+      expect(true).toBe(false);
+    });
+
+    it('should initialize with light mode when there is not an app preferred mode', () => {
+      expect(true).toBe(false);
+    });
   });
 
-  it('should change theme to light', () => {
-    const { getByText } = render(
-      <Theme>
-        <ThemeContext.Consumer>
-          {(theme) => <button onClick={theme.toggle}>toggle</button>}
-        </ThemeContext.Consumer>
-      </Theme>
-    );
-    fireEvent.click(getByText('toggle'));
-    fireEvent.click(getByText('toggle'));
-    expect(Helmet.peek().htmlAttributes).toHaveProperty('data-theme', 'light');
+  describe('System: no preferred mode', () => {
+    it('should initialize with app preferred mode by default', () => {
+      expect(true).toBe(false);
+    });
+
+    it('should initialize with light mode when there is not an app preferred mode', () => {
+      expect(true).toBe(false);
+    });
   });
 });

@@ -1,30 +1,51 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
-import Helmet from 'react-helmet';
+import React, { FunctionComponent, useState, useCallback, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { useSystemTheme } from '~hooks/useSystemTheme';
+import { ThemeMode } from './types';
 
-const colors = {
-  light: '#ffffff',
-  dark: '#2e3440',
-};
 
 const Theme: FunctionComponent = ({ children }) => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const [color, setColor] = useState<string>('#ffffff');
-  const toggleThme = (): void => setTheme((theme) => theme === 'light' ? 'dark' : 'light');
+  const systemTheme = useSystemTheme();
+  const [theme, setTheme] = useState<ThemeMode>(() => '');
+
+  const toggleThme = useCallback((): void => {
+    setTheme((currentTheme) => {
+      const theme = currentTheme === 'light' ? 'dark' : 'light';
+      window.localStorage.setItem('theme', theme);
+      window.__updateTheme(theme);
+      return theme;
+    });
+  }, []);
 
   useEffect(() => {
-    setColor(colors[theme]);
-  }, [theme]);
+    const preferedTheme = window.localStorage.getItem('theme') as 'dark' | 'light' | null;
+    if (!preferedTheme) return;
+    setTheme(preferedTheme);
+  }, []);
+
+  useEffect(() => {
+    const preferedTheme = window.localStorage.getItem('theme');
+    if (preferedTheme) return;
+    setTheme(systemTheme);
+  }, [systemTheme]);
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const mediaHandler = (event: MediaQueryListEvent): void => {
+      const preferedTheme = window.localStorage.getItem('theme') as 'dark' | 'light' | null;
+      const theme = event.matches ? 'dark' : 'light';
+      if (preferedTheme) return;
+      window.__updateTheme(theme);
+    };
+
+    media.addEventListener('change', mediaHandler);
+    return () => media.removeEventListener('change', mediaHandler);
+  }, []);
 
   return (
     <ThemeProvider theme={{ name: theme, toggle: toggleThme }}>
-      <>
-        {children}
-        <Helmet>
-          <html data-theme={theme} />
-          <meta name="theme-color" content={color} />
-        </Helmet>
-      </>
+      {children}
     </ThemeProvider>
   );
 };
