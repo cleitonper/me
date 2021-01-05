@@ -15,6 +15,7 @@ module.exports = {
     twitter: '@cleitonsper',
   },
   plugins: [
+    'app-dark-mode',
     'gatsby-plugin-typescript',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
@@ -69,6 +70,7 @@ module.exports = {
           'entuasiasta de novas tecnologias do mundo de desenvolvimento web ' +
           'e fã de destribuições Linux.',
         icon: 'src/assets/img/logo.svg',
+        theme_color_in_head: false,
         background_color: '#FFFFFF',
         theme_color: '#000000',
         display: 'standalone',

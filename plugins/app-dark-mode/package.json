@@ -1,0 +1,9 @@
+{
+  "name": "app-dark-mode",
+  "version": "1.0.0",
+  "description": "Plugin gatsby necessário para determinar o tema inicial da aplicação",
+  "main": "gatsby-ssr.js",
+  "author": "Cleiton da Silva <cleiton.spereira@live.com>",
+  "homepage": "https://cleiton.netlify.app",
+  "license": "MIT"
+}
