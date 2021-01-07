@@ -1,0 +1,9 @@
+{
+  "name": "app-query-types",
+  "version": "1.0.0",
+  "description": "Plugin gatsby com definições de tipagem graphql para consultas de conteúdo",
+  "main": "gatsby-ssr.js",
+  "author": "Cleiton da Silva <cleiton.spereira@live.com>",
+  "homepage": "https://cleiton.netlify.app",
+  "license": "MIT"
+}

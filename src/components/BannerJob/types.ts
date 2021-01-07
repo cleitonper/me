@@ -1,10 +1,11 @@
 import { HTMLAttributes } from "react";
 import { Tag } from '~components/Tag/types';
+import { GatsbyImage } from '~types/GatsbyImage';
 
 export interface Job {
   name?: string;
   link: string;
-  image: string;
+  image: GatsbyImage;
   description: string;
   tags: Tag[];
 }

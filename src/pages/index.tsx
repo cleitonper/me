@@ -97,8 +97,14 @@ query {
     frontmatter {
       jobs {
         description
-        image
         link
+        image {
+          childImageSharp {
+            fluid(jpegQuality: 100, maxWidth: 1024, srcSetBreakpoints: [360, 480, 768, 1024]) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
         tags {
           background
           foreground
@@ -117,7 +123,13 @@ query {
           date(formatString: "DD [de] MMMM", locale: "pt-br")
           title
           subtitle
-          image
+          image {
+            childImageSharp {
+              fluid(jpegQuality: 100, maxWidth: 1024, srcSetBreakpoints: [360, 480, 768, 1024]) {
+                ...GatsbyImageSharpFluid_tracedSVG
+              }
+            }
+          }
         }
         fields {
           slug

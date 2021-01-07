@@ -1,12 +1,24 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Props } from './types';
 import { BannerJob } from '.';
 
-const props: Props = {
+const props = {
   link: '#',
-  image: 'fake.png',
   description: 'My Fake Job',
+  image: {
+    childImageSharp: {
+      fluid: {
+        aspectRatio: 1,
+        src: 'fake.jpg',
+        srcSet:
+          ` fake-480w.jpg 480w,
+            fake-800w.jpg 800w`,
+        sizes:
+          `(max-width: 600px) 480px,
+          800px`,
+      }
+    }
+  },
   tags: [
     { name: 'html', background: 'red', foreground: 'white' },
     { name: 'css', background: 'blue', foreground: 'white' },
@@ -17,7 +29,7 @@ const props: Props = {
 describe('Component: BannerJob', () => {
   it('should render the job image', () => {
     const { getByAltText } = render(<BannerJob {...props} />);
-    expect(getByAltText(props.description)).toHaveAttribute('src', props.image);
+    expect(getByAltText(props.description)).toHaveAttribute('src', props.image.childImageSharp.fluid.src);
   });
 
   it('should render the job description', () => {
@@ -32,8 +44,8 @@ describe('Component: BannerJob', () => {
   });
 
   it('should show job details when click in its banner', () => {
-    const { getByAltText } = render(<BannerJob {...props} />);
-    const Banner = getByAltText(props.description);
+    const { getByTestId } = render(<BannerJob {...props} />);
+    const Banner = getByTestId('banner-button');
 
     fireEvent.click(Banner);
 

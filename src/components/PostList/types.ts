@@ -1,8 +1,11 @@
+import { GatsbyImage } from '~types/GatsbyImage';
+
+
 export interface Post {
   date: string;
   title: string;
   subtitle: string;
-  image: string;
+  image: GatsbyImage;
   link: string;
 }
 

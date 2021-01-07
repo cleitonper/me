@@ -1,5 +1,5 @@
 ---
-image: https://i.ibb.co/yB3kRqM/5e552b410c3e4.png
+image: ../../../static/img/posts/wtf-code.png
 title: Como sair do vim e do nano na linha de comando
 subtitle: |
   Descubra o que fazer quando se deparar com um editor
