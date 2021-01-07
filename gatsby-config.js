@@ -16,6 +16,7 @@ module.exports = {
   },
   plugins: [
     'app-dark-mode',
+    'app-query-types',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-typescript',
