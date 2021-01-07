@@ -16,6 +16,8 @@ module.exports = {
   },
   plugins: [
     'app-dark-mode',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-typescript',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
@@ -43,6 +45,13 @@ module.exports = {
       options: {
         name: 'blog',
         path: `${__dirname}/src/content/blog`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/static/img`,
       },
     },
     {
