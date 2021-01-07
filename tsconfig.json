@@ -7,7 +7,7 @@
     "noImplicitAny": false,
     "skipLibCheck": true,
     "module": "commonjs",
-    "target": "esnext",
+    "target": "es2019",
     "jsx": "react",
     "rootDir": "./src",
     "baseUrl": "./src",
@@ -31,8 +31,5 @@
   "include": [
     "./src/**/*",
     "node_modules/@testing-library/jest-dom/extend-expect.d.ts"
-  ],
-  "exclude": [
-    "./src/**/*.spec.tsx"
   ],
 }
