@@ -62,7 +62,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type Frontmatter {
       title: String
       subtitle: String
-      image: String
+      image: File @fileByRelativePath
       date: Date @dateformat
       jobs: [Job]
       skills: [Skill]

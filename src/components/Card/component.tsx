@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Button } from '~components/Button';
+import Img from 'gatsby-image';
 import { Props } from './types';
 
 const Container = styled('div')`
@@ -8,10 +9,8 @@ const Container = styled('div')`
   display: flex;
   flex-flow: column wrap;
 
-  img {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
+  .gatsby-image-wrapper {
+    height: 170px;
     box-shadow: 0px 4px 3px -2px rgba(0, 0, 0, 0.35);
   }
 
@@ -65,7 +64,12 @@ const Card: FunctionComponent<Props> = ({
   link,
 }) => (
   <Container className={ className }>
-    <img src={image} />
+    {image?.childImageSharp?.fluid &&
+      <Img
+        fluid={image.childImageSharp.fluid}
+        imgStyle={{ objectFit: 'cover', objectPosition: 'center', height: '170px' }}
+      />
+    }
     <article>
       <span>{ date }</span>
       <h3>{ title }</h3>

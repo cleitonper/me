@@ -1,7 +1,6 @@
 ---
 title: Contexto, o que é isso?
-image: >-
-  https://images.unsplash.com/photo-1507652955-f3dcef5a3be5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format
+image: ../../../static/img/posts/you-got-this.jpg
 subtitle: >-
   Vamos entender melhor qual o significado da palavra reservada this
   e quais valores esse ponteiro pode assumir em diferentes contextos

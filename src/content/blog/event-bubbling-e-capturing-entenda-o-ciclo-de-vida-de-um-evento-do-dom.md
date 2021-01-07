@@ -1,5 +1,5 @@
 ---
-image: 'https://images.unsplash.com/photo-1490704498263-b067a569c9cc'
+image: ../../../static/img/posts/bubble.jpg
 title: Event bubbling e capturing. Entenda o ciclo de vida de um evento do DOM.
 subtitle: >-
   Quando um evento é disparado no javascript, ele passa por duas fases:
