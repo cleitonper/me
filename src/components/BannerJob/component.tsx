@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState, useRef } from 'react';
 import styled from 'styled-components';
 import classnames from 'classnames';
+import Img from 'gatsby-image';
 import { useClickOutside } from '~hooks/useClickOutside';
 import { Button } from '~components/Button';
 import { Tag } from '~components/Tag';
@@ -96,14 +97,21 @@ const JobFooter = styled.footer`
   }
 `;
 
-const Banner = styled.img`
+const Banner = styled.button`
   transition-duration: var(--transition-default-timing);
   transition-property: all;
   cursor: pointer;
-  max-width: 100%;
-  border-radius: 24px;
   position: relative;
+  overflow: hidden;
   z-index: 10;
+  width: 100%;
+  padding: 0;
+
+  border-width: 0px;
+  border-style: solid;
+  border-radius: 24px;
+  border-color: transparent;
+  background-color: transparent;
 
   &.is-open {
     pointer-events: none;
@@ -138,15 +146,21 @@ const BannerJob: FunctionComponent<Props> = ({
     setIsOpen(false);
   });
 
+  if (!image?.childImageSharp?.fluid) return null;
+
   return (
-    <Container ref={containerRef} className={className}>
+    <Container ref={containerRef} className={className} {...props}>
       <Banner
-        src={image}
-        alt={description}
+        type="button"
+        data-testid="banner-button"
         className={classnames({ 'is-open': isOpen })}
         onClick={open}
-        {...props}
-      />
+      >
+        <Img
+          fluid={image.childImageSharp.fluid}
+          alt={description}
+        />
+      </Banner>
       <Job className={classnames({ 'is-open': isOpen  })}>
         <JobDescription>
           {description}

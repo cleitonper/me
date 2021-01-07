@@ -36,7 +36,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type Job {
       name: String
       link: String
-      image: String
+      image: File @fileByRelativePath
       description: String
       tags: [Tag]
     }

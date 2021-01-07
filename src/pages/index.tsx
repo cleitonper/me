@@ -97,8 +97,14 @@ query {
     frontmatter {
       jobs {
         description
-        image
         link
+        image {
+          childImageSharp {
+            fluid(jpegQuality: 100, maxWidth: 1024, srcSetBreakpoints: [360, 480, 768, 1024]) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
         tags {
           background
           foreground
