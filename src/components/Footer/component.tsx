@@ -81,7 +81,7 @@ const FooterLink = styled.a`
 `;
 
 const Footer: FunctionComponent<Props> = ({ networks }) => (
-  <Container data-testid="footer">
+  <Container data-testid="footer" id="main-footer">
     {networks
       .map((network, index) => (
         <FooterLink
