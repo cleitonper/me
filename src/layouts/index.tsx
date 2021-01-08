@@ -56,7 +56,9 @@ const LayoutDefault: FunctionComponent = ({ children }) => {
     <Theme>
       <SEO />
       <Header />
-      {children}
+      <div style={{ minHeight: 'calc(100vh + var(--header-height, 70px))' }}>
+        {children}
+      </div>
       {networks && <Footer networks={networks} />}
     </Theme>
   );
