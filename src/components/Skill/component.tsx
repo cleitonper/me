@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Props } from './types';
 
 const Container = styled.div`
-  --border-opacity: ${({ theme }) => theme.name === 'light' ? 0.15 : 1};
+  --border-opacity: ${({ theme }) => theme.name !== 'dark' ? 0.15 : 1};
 
   display: flex;
   flex-flow: column wrap;
