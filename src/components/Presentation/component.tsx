@@ -7,11 +7,6 @@ import { Mouse } from '~components/Mouse';
 import { Props } from './types';
 
 const Presentation: FunctionComponent<Props> = ({ className }) => {
-  const scrollToFooter = (): void => {
-    if(typeof window === undefined || typeof document === undefined) return;
-    window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
-  };
-
   return (
     <section className={className}>
       <Avatar src={me} alt="Eu" />
@@ -27,7 +22,7 @@ const Presentation: FunctionComponent<Props> = ({ className }) => {
       >
         -
       </a>
-      <Button onClick={scrollToFooter}>Contato</Button>
+      <Button href="#main-footer">Contato</Button>
       <Mouse />
     </section>
   );

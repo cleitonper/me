@@ -17,7 +17,7 @@ const Button: FunctionComponent<Props> = ({
 }) => {
   const linkType = !href
     ? null
-    : href.startsWith('/')
+    : href.startsWith('/') || href.startsWith('#')
       ? 'internal'
       : 'external';
 
