@@ -88,7 +88,7 @@ const StyledPresentation = styled(Presentation)`
     text-transform: uppercase;
     margin-top: 60px;
     margin-bottom: 60px;
-    padding: 8px 34px;
+    padding: 14px 34px 8px;
   }
 `;
 
