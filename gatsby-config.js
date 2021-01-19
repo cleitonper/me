@@ -69,6 +69,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: '#8C43FF',
+        showSpinner: false,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         lang: 'pt-BR',
