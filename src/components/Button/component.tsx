@@ -1,8 +1,9 @@
-import { Link } from 'gatsby';
-import React, { FunctionComponent } from 'react';
+import { Link, navigate } from 'gatsby';
+import React, { FunctionComponent, MouseEvent, useCallback } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { Props } from './types';
+
 
 const Button: FunctionComponent<Props> = ({
   href,
@@ -40,6 +41,28 @@ const Button: FunctionComponent<Props> = ({
     size,
   );
 
+  const scrollIntoView = useCallback((event: MouseEvent) => {
+    event.preventDefault();
+
+    const anchor = href?.startsWith('#') && href;
+    const target = anchor && document.querySelector(anchor);
+    const rootElement = document.documentElement;
+
+    if (!target) {
+      rootElement.classList.add('smoothless');
+      if (href) navigate(href);
+      return;
+    }
+
+    rootElement.classList.remove('smoothless');
+
+    target.scrollIntoView({
+      behavior: 'smooth',
+      inline: 'nearest',
+      block: 'center',
+    });
+  }, [href]);
+
   const button =
   (
     <button
@@ -67,6 +90,7 @@ const Button: FunctionComponent<Props> = ({
 
   const internalLink = (
     <Link
+      onClick={scrollIntoView}
       className={classes}
       to={href || '/'}
       replace
@@ -82,11 +106,13 @@ const Button: FunctionComponent<Props> = ({
       : externalLink;
 };
 
+
 Button.defaultProps = {
   shape: 'rect',
   fill: 'default',
   size: 'small',
 };
+
 
 const StyledButton = styled(Button)`
   cursor: pointer;
@@ -145,5 +171,6 @@ const StyledButton = styled(Button)`
     cursor: not-allowed;
   }
 `;
+
 
 export default StyledButton;
