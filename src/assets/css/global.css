@@ -3,7 +3,7 @@ html:not(.smoothless) {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   background-color: var(--background-primary);
   color: var(--foreground-primary);
 }
