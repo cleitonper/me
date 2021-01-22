@@ -84,11 +84,12 @@ const StyledPresentation = styled(Presentation)`
 
   ${Button} {
     font-size: 20px;
+    line-height: 1em;
     font-weight: 700;
     text-transform: uppercase;
     margin-top: 60px;
     margin-bottom: 60px;
-    padding: 14px 34px 8px;
+    padding: 12px 34px;
   }
 `;
 
