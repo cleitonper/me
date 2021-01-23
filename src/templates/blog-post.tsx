@@ -30,7 +30,7 @@ const BlogPost: FunctionComponent<BlogPostQuery> = ({ data, isEditing, setIsEdit
       <TinaField name="rawMarkdownBody" Component={PostContentEditor}>
         <PostContent dangerouslySetInnerHTML={{ __html: html }}></PostContent>
       </TinaField>
-      {!process.env.NETLIFY && (
+      {process.env.NETLIFY == 'true' && (
         <div style={{ padding: '16px' }}>
           <Button onClick={() => setIsEditing(edting => !edting)}>
             {isEditing ? 'Preview' : 'Editar Página'}
