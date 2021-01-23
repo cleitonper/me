@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { Wysiwyg } from '@tinacms/fields';
 
 const style = css`
-  padding: 0px 16px;
+  padding: 0px var(--page-side-gap);
   margin-bottom: 32px;
   margin-top: 24px;
 

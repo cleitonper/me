@@ -11,7 +11,7 @@ const Container = styled.section`
   color: var(--foreground-secondary);
   background-color: var(--background-secondary);
   min-height: calc(100vh - var(--header-height));
-  padding: 32px 16px 200px;
+  padding: 32px var(--page-side-gap) 200px;
 `;
 
 const Title = styled.h2`

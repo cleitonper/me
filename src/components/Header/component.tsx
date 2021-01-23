@@ -10,7 +10,7 @@ import { usePrevious } from '~hooks/usePrevious';
 const Sticky = styled.div`
   width: 100%;
   height: var(--header-height);
-  padding: 16px;
+  padding: 16px var(--page-side-gap);
 
   background-color: var(--header-background);
 

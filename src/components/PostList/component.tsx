@@ -9,7 +9,7 @@ const Container = styled('section')`
   justify-content: space-between;
   align-items: stretch;
   margin-bottom: 80px;
-  padding: 16px;
+  padding: 16px var(--page-side-gap);
 
   ${Card} {
     @media (max-width: 767px) {

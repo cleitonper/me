@@ -26,12 +26,12 @@ const Container = styled.footer`
     rgba(var(--footer-shadow-color));
 
     @media (max-width: 429px) {
-      padding: 30px 16px;
+      padding: 30px var(--page-side-gap);
       justify-content: flex-start;
     }
 
     @media (min-width: 430px) {
-      padding: 60px 16px;
+      padding: 60px var(--page-side-gap);
       justify-content: center;
     }
 `;
