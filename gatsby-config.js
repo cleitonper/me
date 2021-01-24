@@ -76,6 +76,32 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-webfonts',
+      options: {
+        fonts: {
+          google: [
+            {
+              family: 'Montserrat',
+              subsets: ['latin'],
+              variants: ['300', '400', '500', '700'],
+              fontDisplay: 'optional',
+              strategy: 'cdn',
+            },
+            {
+              family: 'Fira Code',
+              subsets: ['latin'],
+              variants: ['400', '500'],
+              fontDisplay: 'optional',
+              strategy: 'cdn',
+            },
+          ],
+        },
+        useMinify: true,
+        usePreload: false,
+        usePreconnect: false,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         lang: 'pt-BR',

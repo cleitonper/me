@@ -5,7 +5,7 @@ import { Props } from './types';
 import { Skill } from '~components/Skill';
 
 const Container = styled.section`
-  padding: 32px 16px;
+  padding: 32px var(--page-side-gap);
   background-color: var(--background-primary);
   width: 100%;
 

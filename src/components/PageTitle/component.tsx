@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
 const Title = styled('h1')`
-  padding: 0px 16px;
+  padding: 0px var(--page-side-gap);
   margin: 32px 0px 12px;
   text-align: center;
   font-weight: 700;

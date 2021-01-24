@@ -5,7 +5,7 @@ import { Props } from './types';
 
 const Container = styled.section`
 background-color: var(--background-primary);
-  padding: 32px 16px;
+  padding: 32px var(--page-side-gap);
 `;
 
 const Jobs = styled.div`

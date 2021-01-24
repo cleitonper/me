@@ -2,9 +2,9 @@ import styled, { css } from 'styled-components';
 import { Wysiwyg } from '@tinacms/fields';
 
 const style = css`
-  padding: 0px 16px;
+  padding: 0px var(--page-side-gap);
   margin-bottom: 32px;
-  margin-top: 24px;
+  margin-top: 60px;
 
   ul {
     list-style-type: square;
@@ -13,16 +13,16 @@ const style = css`
   }
 
   p, li {
-    font-size: calc(14px + 1.50vw);
-  }
-
-  p, li {
-    margin-bottom: 1em;
     line-height: 1.45em;
   }
 
+  li,
+  p + p {
+    margin-top: 1em;
+  }
+
   h3, h4, h5, h6 {
-    margin: 1em 0px 0.10em;
+    margin: 1.75em 0px 0.10em;
     line-height: 1.45em;
     font-weight: 700;
   }
@@ -34,11 +34,6 @@ const style = css`
   h4, h5, h6 {
     font-weight: 500;
   }
-
-  h3 { font-size: calc(24px + 3vw); }
-  h4 { font-size: calc(20px + 2.50vw); }
-  h5 { font-size: calc(16px + 2.30vw); }
-  h6 { font-size: calc(14px + 2vw); }
 
   a {
     text-decoration: none;
@@ -58,8 +53,9 @@ const style = css`
     background-color: var(--code-background);
     white-space: nowrap;
     font-size: 0.80em;
+    line-height: 1em;
     border-radius: 8px;
-    padding: 0.30em 10px;
+    padding: 0.10em 10px;
   }
 
   p > code {
@@ -73,7 +69,37 @@ const style = css`
   pre[class*="language-"],
   code[class*="language-"],
   div[class*="CodeMirror"] {
-    font-size: calc(12px + 1.35vw);
+    font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  .gatsby-highlight {
+    margin-top: 0.75em;
+    margin-bottom: 2.50em;
+  }
+
+
+  @media (max-width: 767px) {
+    h3 { font-size: 1.40rem; }
+    h4 { font-size: 1.35rem; }
+    h5 { font-size: 1.30rem; }
+    h6 { font-size: 1.25rem; }
+
+    p, li, .gatsby-highlight { font-size: 1.25rem; }
+
+    p, li { letter-spacing: 0.070em; }
+    h3, h4, h5, h6 { letter-spacing: 0.050em; }
+  }
+
+  @media (min-width: 768px) {
+    h3 { font-size: calc(1.25rem + 1vw); }
+    h4 { font-size: calc(1.15rem + 1vw); }
+    h5 { font-size: calc(1.00rem + 1vw); }
+    h6 { font-size: calc(0.90rem + 1vw); }
+
+    p, li, .gatsby-highlight { font-size: calc(0.75rem + 1vw); }
+
+    p, li { letter-spacing: 0.030em; }
+    h3, h4, h5, h6 { letter-spacing: 0.045em; }
   }
 `;
 

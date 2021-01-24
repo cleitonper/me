@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
 const Subtitle = styled('h2')`
-  padding: 0px 16px;
+  padding: 0px var(--page-side-gap);
   margin: 0px auto 48px;
   text-align: center;
   font-weight: 300;

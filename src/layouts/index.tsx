@@ -9,7 +9,6 @@ import { SEO } from '~components/SEO';
 import '~assets/css/libs/prism.css';
 import '~assets/css/reset.css';
 import '~assets/css/variables.css';
-import '~assets/css/fonts.css';
 import '~assets/css/global.css';
 import '~assets/js/libs/fontawesome';
 

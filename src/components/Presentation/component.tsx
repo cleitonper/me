@@ -31,7 +31,7 @@ const Presentation: FunctionComponent<Props> = ({ className }) => {
 const StyledPresentation = styled(Presentation)`
   width: 100%;
   min-height: calc(100vh - var(--header-height));
-  padding: 32px 16px;
+  padding: 32px var(--page-side-gap);
 
   display: flex;
   flex-flow: column wrap;
