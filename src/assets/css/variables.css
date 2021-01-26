@@ -57,8 +57,8 @@
   --background-secondary-rgb: 41, 46, 57;
   --background-tertiary: #3b4252;
   --background-tertiary-rgb: rgb(59, 66, 82);
-  --background-accent-tertiary: #8C43FF;
-  --background-accent-tertiary-rgb: rgb(140, 67, 255);
+  --background-accent-tertiary: #88C0D0;
+  --background-accent-tertiary-rgb: rgb(136, 192, 208);
   --foreground-primary: #ffffff;
   --foreground-primary-rgb: 255, 255, 255;
   --foreground-primary-dark: #b9b9b9;
@@ -69,8 +69,8 @@
   --foreground-tertiary-rgb: 255, 255, 255;
   --foreground-accent-primary: #ffffff;
   --foreground-accent-primary-rgb: 255, 255, 255;
-  --foreground-highlight: #8C43FF;
-  --foreground-highlight-rgb: rgb(140, 67, 255);
+  --foreground-highlight: #88C0D0;
+  --foreground-highlight-rgb: rgb(136, 192, 208);
 
   --code-foreground: rgba(200, 213, 255, 0.85);
   --code-background: rgba(150, 150, 150, 0.15);
