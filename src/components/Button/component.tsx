@@ -117,20 +117,51 @@ Button.defaultProps = {
 const StyledButton = styled(Button)`
   cursor: pointer;
   text-decoration: none;
-  border-width: 1px;
-  border-style: solid;
   transition: all var(--transition-default-timing);
   display: inline-block;
 
   &.fill-default {
+    overflow: hidden;
+    position: relative;
+    border-width: 0px;
+    border-style: solid;
     background-color: ${(props) => props.background ? props.background : 'var(--background-accent-primary)'};
     border-color: ${(props) => props.background ? props.background : 'var(--background-accent-primary)'};
     color: ${(props) => props.foreground ? props.foreground : 'var(--foreground-accent-primary)'};
+
+    ::after {
+      content: '';
+      display: block;
+      background-color: var(--background-accent-tertiary);
+      width: 100%;
+      height: 5px;
+
+      transform: translateX(-50%);
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+
+      transition-property: all;
+    }
+
+    &:not(:hover) ::after {
+      transition-duration: 250ms;
+      transition-timing-function: cubic-bezier(0.64, 0, 0.78, 0);
+      margin-bottom: -5px;
+    }
+
+    &:hover ::after {
+      transition-duration: 450ms;
+      transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+      margin-bottom: 0px;
+    }
   }
 
   &.fill-clear {
-    background-color: transparent;
+    border-width: 1px;
+    border-style: solid;
     border-color: transparent;
+    background-color: transparent;
     color: ${(props) => props.foreground ? props.foreground : 'var(--foreground-accent-primary)'};
 
     :hover {
