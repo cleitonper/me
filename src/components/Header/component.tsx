@@ -62,7 +62,7 @@ const Container = styled.header`
 const Header: FunctionComponent = () => {
   const headerRef = useRef(null);
 
-  const [, offsetY] = usePosition(headerRef);
+  const [, offsetY] = usePosition(headerRef, 0);
   const previousOffsetY = usePrevious<number>(offsetY) || 0;
 
   const isRendered = typeof document !== 'undefined' && typeof window !== 'undefined';
