@@ -1,11 +1,11 @@
 import { Link, navigate } from 'gatsby';
-import React, { FunctionComponent, MouseEvent, useCallback } from 'react';
+import React, { forwardRef, MouseEvent, useCallback } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { Props } from './types';
 
 
-const Button: FunctionComponent<Props> = ({
+const Button = forwardRef<any, Props>(({
   href,
   fill,
   size,
@@ -15,7 +15,7 @@ const Button: FunctionComponent<Props> = ({
   children,
   className,
   ...props
-}) => {
+}, ref) => {
   const linkType = !href
     ? null
     : href.startsWith('/') || href.startsWith('#')
@@ -69,6 +69,7 @@ const Button: FunctionComponent<Props> = ({
       {...props}
       className={classes}
       data-testid="button"
+      ref={ref}
     >
       {children}
     </button>
@@ -82,6 +83,7 @@ const Button: FunctionComponent<Props> = ({
         target={_target}
         rel={_rel}
         className={classes}
+        ref={ref}
         data-testid="button"
       >
         {children}
@@ -93,6 +95,7 @@ const Button: FunctionComponent<Props> = ({
       onClick={scrollIntoView}
       className={classes}
       to={href || '/'}
+      ref={ref}
       replace
     >
       {children}
@@ -104,7 +107,7 @@ const Button: FunctionComponent<Props> = ({
     : linkType === 'internal'
       ? internalLink
       : externalLink;
-};
+});
 
 
 Button.defaultProps = {
