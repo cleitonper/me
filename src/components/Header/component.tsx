@@ -47,9 +47,12 @@ const Container = styled.header`
   position: relative;
   z-index: 20;
 
-  transition: transform var(--transition-default-timing, 450ms);
+  &:not(.static) ${Sticky} {
+    transition: transform var(--transition-default-timing, 450ms);
+  }
 
   &.static ${Sticky} {
+    transition: none;
     position: static;
   }
 
