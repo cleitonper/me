@@ -47,9 +47,12 @@ const Container = styled.header`
   position: relative;
   z-index: 20;
 
-  transition: transform var(--transition-default-timing, 450ms);
+  &:not(.static) ${Sticky} {
+    transition: transform var(--transition-default-timing, 450ms);
+  }
 
   &.static ${Sticky} {
+    transition: none;
     position: static;
   }
 
@@ -62,7 +65,7 @@ const Container = styled.header`
 const Header: FunctionComponent = () => {
   const headerRef = useRef(null);
 
-  const [, offsetY] = usePosition(headerRef);
+  const [, offsetY] = usePosition(headerRef, 0);
   const previousOffsetY = usePrevious<number>(offsetY) || 0;
 
   const isRendered = typeof document !== 'undefined' && typeof window !== 'undefined';

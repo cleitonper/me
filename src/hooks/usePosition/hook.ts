@@ -18,10 +18,11 @@ const getPosition = (element?: HTMLElement): Position => {
  * Caso o parâmetro `element` não seja inserido, esta função
  * retornará o deslocamento atual da página.
  *
- * @param element O element *HTML* o qual se deseja obter a posição
+ * @param element O elemento *HTML* o qual se deseja obter a posição
+ * @param delay Intervalo, em *ms*, entre a geração de novos vaores
  * @return A posição de `element` ou o deslocamento atual da página
  */
-export default function usePosition(element?: RefObject<HTMLElement | null>): Position {
+export default function usePosition(element?: RefObject<HTMLElement | null>, delay = 200): Position {
   const [position, setPosition] = useState<Position>([0, 0]);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ export default function usePosition(element?: RefObject<HTMLElement | null>): Po
           : [0, 0];
 
       setPosition(currentPosition);
-    }, 200);
+    }, delay);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
