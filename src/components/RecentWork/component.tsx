@@ -46,7 +46,8 @@ const RecentWork: FunctionComponent<Props> = ({ jobs }) => (
         (job, index) =>
           <BannerJob
             key={index}
-            link={job.link}
+            demo={job.demo}
+            source={job.source}
             tags={job.tags}
             image={job.image}
             description={job.description}

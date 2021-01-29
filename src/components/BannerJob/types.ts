@@ -4,7 +4,8 @@ import { GatsbyImage } from '~types/GatsbyImage';
 
 export interface Job {
   name?: string;
-  link: string;
+  source?: string;
+  demo?: string;
   image: GatsbyImage;
   description: string;
   tags: Tag[];

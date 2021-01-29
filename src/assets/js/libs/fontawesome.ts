@@ -7,6 +7,8 @@ import {
   faHammer,
   faPencilRuler,
   faEnvelope,
+  faGlobe,
+  faCode,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -26,6 +28,8 @@ library.add(
   faGitlab,
   faLinkedinIn,
   faWhatsapp,
+  faGlobe,
+  faCode,
 );
 
 
