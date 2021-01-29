@@ -14,6 +14,7 @@ const Button = forwardRef<any, Props>(({
   rel,
   children,
   className,
+  onClick,
   ...props
 }, ref) => {
   const linkType = !href
@@ -41,7 +42,8 @@ const Button = forwardRef<any, Props>(({
     size,
   );
 
-  const scrollIntoView = useCallback((event: MouseEvent) => {
+  const scrollIntoView = useCallback((event: MouseEvent<HTMLElement>) => {
+    onClick?.(event);
     event.preventDefault();
 
     const anchor = href?.startsWith('#') && href;
@@ -61,7 +63,7 @@ const Button = forwardRef<any, Props>(({
       inline: 'nearest',
       block: 'center',
     });
-  }, [href]);
+  }, [href, onClick]);
 
   const button =
   (
@@ -69,6 +71,7 @@ const Button = forwardRef<any, Props>(({
       {...props}
       className={classes}
       data-testid="button"
+      onClick={onClick}
       ref={ref}
     >
       {children}
@@ -83,6 +86,7 @@ const Button = forwardRef<any, Props>(({
         target={_target}
         rel={_rel}
         className={classes}
+        onClick={onClick}
         ref={ref}
         data-testid="button"
       >
