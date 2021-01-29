@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import classnames from 'classnames';
 import Img from 'gatsby-image';
 import { useClickOutside } from '~hooks/useClickOutside';
-import { Button } from '~components/Button';
 import { Tag } from '~components/Tag';
+import { JobLink } from './JobLink';
 import { Props } from './types';
+
 
 const Job = styled.div`
   display: flex;
@@ -27,18 +28,6 @@ const Job = styled.div`
   position: absolute;
   left: 0;
   top: 0;
-
-  ${Button} {
-    font-size: 16px;
-    font-weight: 500;
-    text-align: center;
-    border-radius: 24px;
-    padding: 4px 16px;
-    margin-bottom: 24px;
-    border-color: var(--background-accent-tertiary);
-    background-color: var(--background-accent-tertiary);
-    color: var(--foreground-tertiary);
-  }
 `;
 
 const JobDescription = styled.p`
@@ -51,6 +40,18 @@ const JobDescription = styled.p`
   margin-right: auto;
   margin-bottom: 24px;
   max-width: 300px;
+`;
+
+const JobLinks = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 17px;
+
+  ${JobLink}:not(:last-of-type) {
+    margin-right: 12px;
+  }
 `;
 
 const JobFooter = styled.footer`
@@ -132,7 +133,8 @@ const Container = styled.div`
 
 const BannerJob: FunctionComponent<Props> = ({
   tags,
-  link,
+  demo,
+  source,
   image,
   description,
   className,
@@ -165,7 +167,18 @@ const BannerJob: FunctionComponent<Props> = ({
         <JobDescription>
           {description}
         </JobDescription>
-        <Button href={link}>Código Fonte</Button>
+        <JobLinks>
+          <JobLink
+            link={demo}
+            icon="globe"
+            label="Demo"
+          />
+          <JobLink
+            link={source}
+            icon="code"
+            label="Fonte"
+          />
+        </JobLinks>
         <JobFooter>
           {tags.map(
             (tag) =>
@@ -181,5 +194,6 @@ const BannerJob: FunctionComponent<Props> = ({
     </Container>
   );
 };
+
 
 export default styled(BannerJob)``;
