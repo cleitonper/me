@@ -8,6 +8,7 @@ import { PostList } from '~components/PostList';
 import { PostsQuery } from '~types/PostsQuery';
 import { postCreatorOptions } from '~config/tina/forms';
 
+
 const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
   const posts = data.allFile.nodes.map((node) => ({
     link: `/blog${node.childMarkdownRemark.fields.slug}`,
@@ -29,7 +30,9 @@ const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
   );
 };
 
+
 const CreatePostPlugin = new RemarkCreatorPlugin(postCreatorOptions);
+
 
 export const query = graphql`
 query PostsQuery {
@@ -56,5 +59,6 @@ query PostsQuery {
   }
 }
 `;
+
 
 export default withPlugin(BlogPage, CreatePostPlugin);

@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
-import { inlineRemarkForm } from 'gatsby-tinacms-remark';
-import { TinaField } from '@tinacms/form-builder';
+import { usePlugin, Form } from 'tinacms';
+import { InlineForm } from 'react-tinacms-inline';
+import { useRemarkForm } from 'gatsby-tinacms-remark';
 import React, { FunctionComponent } from 'react';
 import { BlogPostQuery } from '~types/BlogPostQuery';
 import { PostImage } from '~components/PostImage';
@@ -12,7 +13,11 @@ import { PostContent, PostContentEditor } from '~components/PostContent';
 import { postFormOptions } from '~config/tina/forms';
 
 
-const BlogPost: FunctionComponent<BlogPostQuery> = ({ data, isEditing, setIsEditing }) => {
+const BlogPost: FunctionComponent<BlogPostQuery> = ({ data }) => {
+  const [, form] = useRemarkForm(data.markdownRemark, postFormOptions) as [any , Form];
+
+  usePlugin(form);
+
   const { markdownRemark } = data;
   const { timeToRead, html } = markdownRemark;
   const { image, title, subtitle, date } = markdownRemark.frontmatter;
@@ -29,20 +34,16 @@ const BlogPost: FunctionComponent<BlogPostQuery> = ({ data, isEditing, setIsEdit
       <PostMeta>
         {date}・{timeToRead} min para ler
       </PostMeta>
-      <TinaField name="rawMarkdownBody" Component={PostContentEditor}>
-        <PostContent dangerouslySetInnerHTML={{ __html: html }}></PostContent>
-      </TinaField>
-      {process.env.NETLIFY == 'true' && (
-        <div style={{ padding: '16px' }}>
-          <Button onClick={() => setIsEditing(edting => !edting)}>
-            {isEditing ? 'Preview' : 'Editar Página'}
-          </Button>
-        </div>
-      )}
+      <InlineForm form={form}>
+        <PostContentEditor name="rawMarkdownBody">
+          <PostContent dangerouslySetInnerHTML={{ __html: html }} />
+        </PostContentEditor>
+      </InlineForm>
     </>
   );
 
 };
+
 
 export const query = graphql`
   query BlogPostQuery($slug: String!) {
@@ -66,4 +67,5 @@ export const query = graphql`
   }
 `;
 
-export default inlineRemarkForm(BlogPost, postFormOptions);
+
+export default BlogPost;
