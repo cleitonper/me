@@ -1,6 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import { useCMS, useFormScreenPlugin, Form } from 'tinacms';
+import React, { FunctionComponent, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { useGlobalRemarkForm } from 'gatsby-tinacms-remark';
+import { useRemarkForm } from 'gatsby-tinacms-remark';
 import { Network } from '~components/Footer/types';
 import { Header } from '~components/Header';
 import { Footer } from '~components/Footer';
@@ -14,6 +15,7 @@ import '~assets/js/libs/fontawesome';
 
 import { socialFormOptions } from '~config/tina/forms';
 
+
 export interface Query {
   markdownRemark: {
     frontmatter: {
@@ -24,6 +26,7 @@ export interface Query {
     fileRelativePath: string;
   };
 }
+
 
 const query = graphql`
 query FooterQuery {
@@ -38,18 +41,28 @@ query FooterQuery {
         }
       }
     }
-    rawFrontmatter
-    rawMarkdownBody
-    fileRelativePath
+    ...TinaRemark
   }
 }
 `;
 
+
 const LayoutDefault: FunctionComponent = ({ children }) => {
+  const cms = useCMS();
   const data = useStaticQuery<Query>(query);
-  const [_networks] = useGlobalRemarkForm(data.markdownRemark, socialFormOptions);
+  const [_networks, form] = useRemarkForm(data.markdownRemark, socialFormOptions) as [any, Form];
+
+  useFormScreenPlugin(form);
 
   const networks = _networks?.frontmatter.social;
+
+  useEffect(() => {
+    if (cms.enabled) {
+      import('react-tinacms-date').then(({ DateFieldPlugin }) => {
+        cms.plugins.add(DateFieldPlugin);
+      });
+    }
+  }, [cms.enabled, cms.plugins]);
 
   return (
     <Theme>
@@ -62,5 +75,6 @@ const LayoutDefault: FunctionComponent = ({ children }) => {
     </Theme>
   );
 };
+
 
 export default LayoutDefault;

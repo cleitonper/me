@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
+import { usePlugin, Form } from 'tinacms';
 import React, { FunctionComponent } from 'react';
-import { useLocalRemarkForm } from 'gatsby-tinacms-remark';
+import { useRemarkForm } from 'gatsby-tinacms-remark';
 import { Presentation } from '~components/Presentation';
 import { About } from '~components/About';
 import { Skills } from '~components/Skills';
@@ -16,17 +17,25 @@ import {
   skillsFormOptions,
   jobsFormOptions,
 } from '~config/tina/forms';
+
+
 export interface Props {
   data: HomeQuery;
 }
 
-const HomePage: FunctionComponent<Props> = ({ data }) => {
-  const [_presentation] = useLocalRemarkForm(data.presentation, presentationFormOptions);
-  const [_skills] = useLocalRemarkForm(data.skills, skillsFormOptions);
-  const [_jobs] = useLocalRemarkForm(data.jobs, jobsFormOptions);
 
-  const skills = _skills?.frontmatter.skills;
-  const jobs = _jobs?.frontmatter.jobs;
+const HomePage: FunctionComponent<Props> = ({ data }) => {
+  const [, presentationForm] = useRemarkForm(data.presentation, presentationFormOptions) as [any , Form];
+  const [, skillsForm] = useRemarkForm(data.skills, skillsFormOptions) as [any , Form];
+  const [, jobsForm] = useRemarkForm(data.jobs, jobsFormOptions) as [any , Form];
+
+  usePlugin(presentationForm);
+  usePlugin(skillsForm);
+  usePlugin(jobsForm);
+
+  const presentation = data.presentation;
+  const skills = data.skills?.frontmatter.skills;
+  const jobs = data.jobs?.frontmatter.jobs;
 
   const posts = data.posts.nodes.map((node) => ({
     link: `/blog${node.childMarkdownRemark.fields.slug}`,
@@ -37,7 +46,7 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
     <>
       <Presentation />
 
-      {_presentation && <About title={_presentation.frontmatter.title} content={_presentation.rawMarkdownBody} />}
+      {presentation && <About title={presentation.frontmatter.title} content={presentation.rawMarkdownBody} />}
 
       {skills && <Skills skills={skills} />}
 
@@ -65,15 +74,14 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
   );
 };
 
+
 export const query = graphql`
 query {
   presentation: markdownRemark (fileRelativePath:{ glob: "**/presentation.md"}) {
     frontmatter {
       title
     }
-    rawFrontmatter
-    rawMarkdownBody
-    fileRelativePath
+    ...TinaRemark
   }
   skills: markdownRemark(fileRelativePath: {glob: "**/skills.md"}) {
     frontmatter {
@@ -89,9 +97,7 @@ query {
         }
       }
     }
-    rawFrontmatter
-    rawMarkdownBody
-    fileRelativePath
+    ...TinaRemark
   }
   jobs: markdownRemark(fileRelativePath: {glob: "**/jobs.md"}) {
     frontmatter {
@@ -113,9 +119,7 @@ query {
         }
       }
     }
-    rawFrontmatter
-    rawMarkdownBody
-    fileRelativePath
+    ...TinaRemark
   }
   posts: allFile(filter: {sourceInstanceName: {eq: "blog"}}, limit: 3, sort: {fields: birthTime, order: ASC}) {
     nodes {
@@ -140,5 +144,6 @@ query {
   }
 }
 `;
+
 
 export default HomePage;

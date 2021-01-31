@@ -1,2 +1,2 @@
-export { default as PostContent } from './component';
+export { PostContent } from './component';
 export { PostContentEditor } from './component';

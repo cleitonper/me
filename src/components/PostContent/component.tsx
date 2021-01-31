@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
-import { Wysiwyg } from '@tinacms/fields';
+import { InlineWysiwyg } from 'react-tinacms-editor';
+
 
 const style = css`
   padding: 0px var(--page-side-gap);
@@ -77,7 +78,6 @@ const style = css`
     margin-bottom: 2.50em;
   }
 
-
   @media (max-width: 767px) {
     h3 { font-size: 1.40rem; }
     h4 { font-size: 1.35rem; }
@@ -103,5 +103,25 @@ const style = css`
   }
 `;
 
-export default styled('div')`${style}`;
-export const PostContentEditor = styled(Wysiwyg)`${style}`;
+
+const PostContent = styled('div')`${style}`;
+const PostContentEditor = styled(InlineWysiwyg)`${style}`;
+
+
+PostContentEditor.defaultProps = {
+  sticky: true,
+  name: 'rawMarkdownRemark',
+  format: 'markdown',
+  focusRing: {
+    offset: {
+      x: 0,
+      y: 0,
+    },
+  },
+};
+
+
+export {
+  PostContent,
+  PostContentEditor,
+};
