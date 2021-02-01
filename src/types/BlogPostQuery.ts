@@ -6,6 +6,9 @@ export interface BlogPostQuery {
   setIsEditing: (callback: (isEditing: boolean) => boolean) => boolean;
   data: {
     markdownRemark: {
+      rawFrontmatter: string;
+      rawMarkdownBody: string;
+      fileRelativePath: string;
       frontmatter: Post;
       timeToRead: string;
       html: string;

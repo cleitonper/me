@@ -4,7 +4,7 @@ export default function debounce(
   callback: Callback,
   delay: number,
 ): Callback {
-  let timer: number;
+  let timer: ReturnType<typeof setTimeout>;
 
   return (...args: unknown[]) => {
     clearTimeout(timer);

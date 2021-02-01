@@ -38,8 +38,8 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
   const jobs = data.jobs?.frontmatter.jobs;
 
   const posts = data.posts.nodes.map((node) => ({
+    ...node.childMarkdownRemark.frontmatter,
     link: `/blog${node.childMarkdownRemark.fields.slug}`,
-    ...node.childMarkdownRemark.frontmatter
   }));
 
   return (

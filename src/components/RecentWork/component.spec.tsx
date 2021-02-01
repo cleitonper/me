@@ -21,8 +21,8 @@ describe('Component: RecentWork', () => {
     };
 
     const jobs: Job[] = [
-      { image: image, link: '#', description: 'Job 01', tags: [{ background: 'a', foreground: 'b', name: 'c' }] },
-      { image: image, link: '#', description: 'Job 02', tags: [{ background: 'a', foreground: 'b', name: 'c' }] },
+      { image: image, source: '#', demo: '#', description: 'Job 01', tags: [{ background: 'a', foreground: 'b', name: 'c' }] },
+      { image: image, source: '#', demo: '#', description: 'Job 02', tags: [{ background: 'a', foreground: 'b', name: 'c' }] },
     ];
 
     const { getAllByTestId } = render(<RecentWork jobs={jobs} />);

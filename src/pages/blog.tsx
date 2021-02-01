@@ -11,8 +11,8 @@ import { postCreatorOptions } from '~config/tina/forms';
 
 const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
   const posts = data.allFile.nodes.map((node) => ({
+    ...node.childMarkdownRemark.frontmatter,
     link: `/blog${node.childMarkdownRemark.fields.slug}`,
-    ...node.childMarkdownRemark.frontmatter
   }));
 
   return (
