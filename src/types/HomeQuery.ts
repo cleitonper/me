@@ -34,4 +34,5 @@ export interface HomeQuery {
         fields: { slug: string };
       };
     }[];
+  };
 }

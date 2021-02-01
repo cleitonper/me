@@ -5,14 +5,18 @@ import Img from 'gatsby-image';
 import { Props } from './types';
 
 
-const PostImage: FunctionComponent<Props> = ({ className, image, alt }) => (
-  <Img
-    alt={alt}
-    fluid={image}
-    imgStyle={{ objectFit: 'cover', objectPosition: 'center' }}
-    className={className}
-  />
-);
+const PostImage: FunctionComponent<Props> = ({ className, image, alt }) =>  {
+  if (!image) return null;
+
+  return (
+    <Img
+      alt={alt}
+      fluid={image}
+      imgStyle={{ objectFit: 'cover', objectPosition: 'center' }}
+      className={className}
+    />
+  );
+};
 
 
 const StyledPostImage = styled(PostImage)`
