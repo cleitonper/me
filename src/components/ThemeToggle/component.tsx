@@ -8,6 +8,9 @@ const ThemeToggle: FunctionComponent<Props> = ({ className }) => {
 
   return (
     <button className={`${className} ${theme.name || 'hidden'}`} onClick={theme.toggle}>
+      <noscript>
+        <IoIosSunny className="sun fallback" title="Light Mode" />
+      </noscript>
       <IoIosSunny className="sun" />
       <IoMdMoon className="moon" />
     </button>
@@ -39,7 +42,8 @@ const StyledThemeToggle = styled(ThemeToggle)`
   }
 
   &.dark .sun,
-  &.light .moon {
+  &.light .moon,
+  .fallback {
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
@@ -59,7 +63,7 @@ const StyledThemeToggle = styled(ThemeToggle)`
   &.dark .moon,
   &.light .sun,
   &.hidden .moon,
-  &.hidden .sun {
+  &.hidden .sun:not(.fallback) {
     top: 100%;
     left: 50%;
     transform: translate3d(-50%, 0%, 0);
