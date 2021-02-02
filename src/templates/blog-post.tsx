@@ -8,7 +8,6 @@ import { PostImage } from '~components/PostImage';
 import { PostTitle } from '~components/PostTitle';
 import { PostSubtitle } from '~components/PostSubtitle';
 import { PostMeta } from '~components/PostMeta';
-import { Button } from '~components/Button';
 import { PostContent, PostContentEditor } from '~components/PostContent';
 import { postFormOptions } from '~config/tina/forms';
 
