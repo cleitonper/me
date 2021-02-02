@@ -38,7 +38,7 @@ export default function usePosition(element?: RefObject<HTMLElement | null>, del
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [element]);
+  }, [element, delay]);
 
   return position;
 }
