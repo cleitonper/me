@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useRef } from 'react';
+import React, { FunctionComponent, MouseEvent, useState, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import classnames from 'classnames';
 import Img from 'gatsby-image';
@@ -98,10 +98,11 @@ const JobFooter = styled.footer`
   }
 `;
 
-const Banner = styled.button`
+const Banner = styled.a`
   transition-duration: var(--transition-default-timing);
   transition-property: all;
   cursor: pointer;
+  display: block;
   position: relative;
   overflow: hidden;
   z-index: 10;
@@ -142,7 +143,12 @@ const BannerJob: FunctionComponent<Props> = ({
 }) => {
   const containerRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-  const open = (): void => setIsOpen(true);
+  const fallbackLink = demo || source;
+
+  const open = useCallback((event: MouseEvent) => {
+    event.preventDefault();
+    setIsOpen(true);
+  }, []);
 
   useClickOutside(containerRef, () => {
     setIsOpen(false);
@@ -153,9 +159,12 @@ const BannerJob: FunctionComponent<Props> = ({
   return (
     <Container ref={containerRef} className={className} {...props}>
       <Banner
-        type="button"
+        target="_blank"
         data-testid="banner-button"
+        rel="noopener noreferrer nofollow"
         className={classnames({ 'is-open': isOpen })}
+        title={description}
+        href={fallbackLink}
         onClick={open}
       >
         <Img
