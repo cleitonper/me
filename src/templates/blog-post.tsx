@@ -3,7 +3,7 @@ import { usePlugin, Form } from 'tinacms';
 import { InlineForm } from 'react-tinacms-inline';
 import { useRemarkForm } from 'gatsby-tinacms-remark';
 import React, { FunctionComponent } from 'react';
-import { BlogPostQuery } from '~types/BlogPostQuery';
+import { BlogPostQuery, PostQuery } from '~types/BlogPostQuery';
 import { PostImage } from '~components/PostImage';
 import { PostTitle } from '~components/PostTitle';
 import { PostSubtitle } from '~components/PostSubtitle';
@@ -12,8 +12,13 @@ import { PostContent, PostContentEditor } from '~components/PostContent';
 import { postFormOptions } from '~config/tina/forms';
 
 
-const BlogPost: FunctionComponent<BlogPostQuery> = ({ data }) => {
-  const [, form] = useRemarkForm(data.markdownRemark, postFormOptions) as [any, Form];
+export interface Props {
+  data: BlogPostQuery;
+}
+
+
+const BlogPost: FunctionComponent<Props> = ({ data }) => {
+  const [, form] = useRemarkForm(data.markdownRemark, postFormOptions) as [PostQuery, Form];
 
   usePlugin(form);
 
