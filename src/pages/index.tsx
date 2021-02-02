@@ -25,9 +25,9 @@ export interface Props {
 
 
 const HomePage: FunctionComponent<Props> = ({ data }) => {
-  const [, presentationForm] = useRemarkForm(data.presentation, presentationFormOptions) as [any , Form];
-  const [, skillsForm] = useRemarkForm(data.skills, skillsFormOptions) as [any , Form];
-  const [, jobsForm] = useRemarkForm(data.jobs, jobsFormOptions) as [any , Form];
+  const [, presentationForm] = useRemarkForm(data.presentation, presentationFormOptions) as [any, Form];
+  const [, skillsForm] = useRemarkForm(data.skills, skillsFormOptions) as [any, Form];
+  const [, jobsForm] = useRemarkForm(data.jobs, jobsFormOptions) as [any, Form];
 
   usePlugin(presentationForm);
   usePlugin(skillsForm);

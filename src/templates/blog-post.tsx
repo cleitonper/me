@@ -13,7 +13,7 @@ import { postFormOptions } from '~config/tina/forms';
 
 
 const BlogPost: FunctionComponent<BlogPostQuery> = ({ data }) => {
-  const [, form] = useRemarkForm(data.markdownRemark, postFormOptions) as [any , Form];
+  const [, form] = useRemarkForm(data.markdownRemark, postFormOptions) as [any, Form];
 
   usePlugin(form);
 
