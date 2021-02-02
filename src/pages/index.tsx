@@ -10,7 +10,13 @@ import { SectionTitle } from '~components/SectionTitle';
 import { SectionDescription } from '~components/SectionDescription';
 import { Button } from '~components/Button';
 import { RecentWork } from '~components/RecentWork';
-import { HomeQuery } from "~src/types/HomeQuery";
+
+import {
+  HomeQuery,
+  PresentationQuery,
+  SkillsQuery,
+  JobsQuery,
+} from "~src/types/HomeQuery";
 
 import {
   presentationFormOptions,
@@ -25,9 +31,9 @@ export interface Props {
 
 
 const HomePage: FunctionComponent<Props> = ({ data }) => {
-  const [, presentationForm] = useRemarkForm(data.presentation, presentationFormOptions) as [any, Form];
-  const [, skillsForm] = useRemarkForm(data.skills, skillsFormOptions) as [any, Form];
-  const [, jobsForm] = useRemarkForm(data.jobs, jobsFormOptions) as [any, Form];
+  const [, presentationForm] = useRemarkForm(data.presentation, presentationFormOptions) as [PresentationQuery, Form];
+  const [, skillsForm] = useRemarkForm(data.skills, skillsFormOptions) as [SkillsQuery, Form];
+  const [, jobsForm] = useRemarkForm(data.jobs, jobsFormOptions) as [JobsQuery, Form];
 
   usePlugin(presentationForm);
   usePlugin(skillsForm);
