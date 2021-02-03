@@ -1,10 +1,11 @@
 import { Link, navigate } from 'gatsby';
-import React, { forwardRef, MouseEvent, useCallback } from 'react';
+import React, { forwardRef, Ref, MouseEvent, useCallback } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { Props } from './types';
 
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Button = forwardRef<any, Props>(({
   href,
   fill,
@@ -72,7 +73,7 @@ const Button = forwardRef<any, Props>(({
       className={classes}
       data-testid="button"
       onClick={onClick}
-      ref={ref}
+      ref={ref as Ref<HTMLButtonElement>}
     >
       {children}
     </button>
@@ -87,7 +88,7 @@ const Button = forwardRef<any, Props>(({
         rel={_rel}
         className={classes}
         onClick={onClick}
-        ref={ref}
+        ref={ref as Ref<HTMLAnchorElement>}
         data-testid="button"
       >
         {children}

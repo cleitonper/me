@@ -2,6 +2,7 @@ import { useCMS, useFormScreenPlugin, Form } from 'tinacms';
 import React, { FunctionComponent, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useRemarkForm } from 'gatsby-tinacms-remark';
+import { MarkdownRemark } from '~types/MarkdownRemark';
 import { Network } from '~components/Footer/types';
 import { Header } from '~components/Header';
 import { Footer } from '~components/Footer';
@@ -16,15 +17,12 @@ import '~assets/js/libs/fontawesome';
 import { socialFormOptions } from '~config/tina/forms';
 
 
+export interface SocialNetworks {
+  social: Network[];
+}
+
 export interface Query {
-  markdownRemark: {
-    frontmatter: {
-      social: Network[];
-    };
-    rawFrontmatter: string;
-    rawMarkdownBody: string;
-    fileRelativePath: string;
-  };
+  markdownRemark: MarkdownRemark<SocialNetworks>;
 }
 
 
@@ -50,7 +48,7 @@ query FooterQuery {
 const LayoutDefault: FunctionComponent = ({ children }) => {
   const cms = useCMS();
   const data = useStaticQuery<Query>(query);
-  const [_networks, form] = useRemarkForm(data.markdownRemark, socialFormOptions) as [any, Form];
+  const [_networks, form] = useRemarkForm(data.markdownRemark, socialFormOptions) as [MarkdownRemark<SocialNetworks>, Form];
 
   useFormScreenPlugin(form);
 

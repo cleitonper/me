@@ -1,3 +1,4 @@
+import { GroupListField } from '~config/tina/types';
 import { Skill, Tool } from '~components/Skill/types';
 
 const title = {
@@ -39,37 +40,30 @@ const tool = {
   component: 'text',
 };
 
-const tools = {
+const tools: GroupListField<Tool> = {
   label: 'Ferramentas',
   name: 'tools',
   description: 'Nome das ferramentas usadas',
   component: 'group-list',
   itemProps: (item: Tool) => ({ label: item.name }),
-  defaultItem: () => ({
-    id: Math.random()
-      .toString(36)
-      .substr(2, 9),
-  }),
   fields: [tool],
 };
 
-const skillsFormOptions = {
+const skills: GroupListField<Skill> = {
   label: 'Skills',
-  fields: [
-    {
-      label: 'Skills',
-      description: 'Skills',
-      name: 'rawFrontmatter.skills',
-      component: 'group-list',
-      itemProps: (item: Skill) => ({ label: item.title }),
-      defaultItem: () => ({
-        id: Math.random()
-          .toString(36)
-          .substr(2, 9),
-      }),
-      fields: [icon, title, description, tools],
-    }
-  ]
+  description: 'Skills',
+  name: 'rawFrontmatter.skills',
+  component: 'group-list',
+  itemProps: (item: Skill) => ({ label: item.title }),
+  fields: [icon, title, description, tools],
 };
+
+
+const skillsFormOptions = {
+  id: 'skills',
+  label: 'Skills',
+  fields: [skills]
+};
+
 
 export default skillsFormOptions;

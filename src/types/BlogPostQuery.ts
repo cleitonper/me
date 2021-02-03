@@ -1,17 +1,9 @@
+import { MarkdownRemark } from '~types/MarkdownRemark';
 import { Post } from '~components/PostList/types';
 
 
+export type PostQuery = MarkdownRemark<Post>;
+
 export interface BlogPostQuery {
-  isEditing: boolean;
-  setIsEditing: (callback: (isEditing: boolean) => boolean) => boolean;
-  data: {
-    markdownRemark: {
-      rawFrontmatter: string;
-      rawMarkdownBody: string;
-      fileRelativePath: string;
-      frontmatter: Post;
-      timeToRead: string;
-      html: string;
-    };
-  };
+  markdownRemark: PostQuery;
 }
