@@ -1,5 +1,7 @@
+import { GroupListField } from '~config/tina/types';
 import { Job } from '~components/BannerJob/types';
 import { Tag } from '~components/Tag/types';
+
 
 const name = {
   label: 'Nome',
@@ -50,37 +52,30 @@ const tagForeground = {
   component: 'text',
 };
 
-const tags = {
+const tags: GroupListField<Tag> = {
   label: 'Tags',
   description: 'Lista de tags relacionadas ao projeto',
   name: 'tags',
   component: 'group-list',
-  itemProps: (item: Tag) => ({ label: item.name }),
-  defaultItem: () => ({
-    id: Math.random()
-      .toString(36)
-      .substr(2, 9),
-  }),
+  itemProps: (item) => ({ label: item.name }),
   fields: [tagName, tagForeground, tagBackground],
 };
 
-const jobsFormOptions = {
+const jobs: GroupListField<Job> = {
   label: 'Trabalhos Recentes',
-  fields: [
-    {
-      label: 'Trabalhos Recentes',
-      description: 'Alguns dos trabalhos que desenvolvi recentemente',
-      name: 'rawFrontmatter.jobs',
-      component: 'group-list',
-      itemProps: (item: Job) => ({ label: item.name }),
-      defaultItem: () => ({
-        id: Math.random()
-          .toString(36)
-          .substr(2, 9),
-      }),
-      fields: [name, description, link, image, tags],
-    }
-  ],
+  description: 'Alguns dos trabalhos que desenvolvi recentemente',
+  name: 'rawFrontmatter.jobs',
+  component: 'group-list',
+  itemProps: (item) => ({ label: item.name }),
+  fields: [name, description, link, image, tags],
 };
+
+
+const jobsFormOptions = {
+  id: 'recent-work',
+  label: 'Trabalhos Recentes',
+  fields: [jobs],
+};
+
 
 export default jobsFormOptions;

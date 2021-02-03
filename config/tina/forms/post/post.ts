@@ -1,5 +1,9 @@
+import { FormShape } from '~config/tina/types';
+import { Post } from '~src/components/PostList/types';
+import { RemarkCreatorPlugin } from 'gatsby-tinacms-remark';
 import { DeleteAction } from 'gatsby-tinacms-remark';
 import slugify from 'slugify';
+
 
 const image = {
   label: 'Imagem',
@@ -40,22 +44,27 @@ const content = {
 
 const fields = [image, title, subtitle, date, content];
 
+
 export const postFormOptions = {
   fields,
   label: 'Post',
   actions: [DeleteAction],
 };
 
-export const postCreatorOptions = {
+
+export const CreatePostPlugin = new RemarkCreatorPlugin<FormShape<Post>>({
   fields,
   label: 'Novo Post',
-  filename: (post) => {
-    const slug = slugify(post.rawFrontmatter.title, {
+  filename: (form) => {
+    const slug = slugify(form.rawFrontmatter.title, {
       remove: /\./g,
       lower: true,
     });
     return `src/content/blog/${slug}.md`;
   },
-  frontmatter: (post) => ({ ...post.rawFrontmatter }),
+  frontmatter: (form) => {
+    console.log(form);
+    return ({ ...form.rawFrontmatter });
+  },
   body: (form) => form.rawMarkdownBody,
-};
+});

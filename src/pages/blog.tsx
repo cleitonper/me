@@ -1,12 +1,11 @@
 import { graphql } from 'gatsby';
 import { withPlugin } from 'tinacms';
-import { RemarkCreatorPlugin } from 'gatsby-tinacms-remark';
 import React, { FunctionComponent } from 'react';
 import { PageTitle } from '~components/PageTitle';
 import { PageSubtitle } from '~components/PageSubtitle';
 import { PostList } from '~components/PostList';
 import { PostsQuery } from '~types/PostsQuery';
-import { postCreatorOptions } from '~config/tina/forms';
+import { CreatePostPlugin } from '~config/tina/forms';
 
 
 const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
@@ -29,9 +28,6 @@ const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
     </>
   );
 };
-
-
-const CreatePostPlugin = new RemarkCreatorPlugin(postCreatorOptions);
 
 
 export const query = graphql`
