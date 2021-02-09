@@ -61,7 +61,7 @@ const StyledThemeToggle = styled(ThemeToggle)`
   }
 
   &.dark .moon,
-  &.light .sun,
+  &.light .sun:not(.fallback),
   &.hidden .moon,
   &.hidden .sun:not(.fallback) {
     top: 100%;
@@ -72,6 +72,22 @@ const StyledThemeToggle = styled(ThemeToggle)`
       top var(--transition-default-timing, 450ms) var(--ease-in-quad, linear),
       color var(--transition-default-timing, 450ms);
   }
+
+  &.light .sun.fallback {
+    z-index: 1;
+    transition: background-color 450ms;
+  }
+
+  &.light {
+    :hover .sun.fallback {
+      background-color: #F4F4F4;
+    }
+
+    :not(:hover) .sun.fallback {
+      background-color: var(--background-primary);
+    }
+  }
 `;
+
 
 export default StyledThemeToggle;
