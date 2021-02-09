@@ -7,12 +7,17 @@ const ThemeToggle: FunctionComponent<Props> = ({ className }) => {
   const theme = useContext(ThemeContext);
 
   return (
-    <button className={`${className} ${theme.name || 'hidden'}`} onClick={theme.toggle}>
+    <button
+      data-testid="toggle-theme"
+      className={`${className} ${theme.name || 'hidden'}`}
+      onClick={theme.toggle}
+      title="Mudar tema"
+    >
       <noscript>
-        <IoIosSunny className="sun fallback" title="Light Mode" />
+        <IoIosSunny className="sun fallback" title="Usando o Modo Claro" />
       </noscript>
-      <IoIosSunny className="sun" />
-      <IoMdMoon className="moon" />
+      <IoIosSunny className="sun" title="Mudar para o Modo Claro" />
+      <IoMdMoon className="moon" title="Mudar para o Modo Escuro" />
     </button>
   );
 };
@@ -61,7 +66,7 @@ const StyledThemeToggle = styled(ThemeToggle)`
   }
 
   &.dark .moon,
-  &.light .sun,
+  &.light .sun:not(.fallback),
   &.hidden .moon,
   &.hidden .sun:not(.fallback) {
     top: 100%;
@@ -72,6 +77,22 @@ const StyledThemeToggle = styled(ThemeToggle)`
       top var(--transition-default-timing, 450ms) var(--ease-in-quad, linear),
       color var(--transition-default-timing, 450ms);
   }
+
+  &.light .sun.fallback {
+    z-index: 1;
+    transition: background-color 450ms;
+  }
+
+  &.light {
+    :hover .sun.fallback {
+      background-color: #F4F4F4;
+    }
+
+    :not(:hover) .sun.fallback {
+      background-color: var(--background-primary);
+    }
+  }
 `;
+
 
 export default StyledThemeToggle;

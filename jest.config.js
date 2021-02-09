@@ -1,5 +1,6 @@
 module.exports = {
   silent: true,
+  clearMocks: true,
   globals: { __PATH_PREFIX__: ''  },
   testURL: 'http://localhost',
   transform: { '^.+\\.tsx?$': 'ts-jest'  },
