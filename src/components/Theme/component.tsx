@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState, useCallback, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { useSystemTheme } from '~hooks/useSystemTheme';
+import ThemeService from './service';
 import { ThemeMode } from './types';
 
 
@@ -10,12 +11,7 @@ const Theme: FunctionComponent = ({ children }) => {
   const [theme, setTheme] = useState<ThemeMode>(defaultTheme);
 
   const toggleThme = useCallback((): void => {
-    setTheme((currentTheme) => {
-      const theme = currentTheme === 'light' ? 'dark' : 'light';
-      window.localStorage.setItem('theme', theme);
-      window.__updateTheme(theme);
-      return theme;
-    });
+    ThemeService.toggle(setTheme);
   }, []);
 
   useEffect(() => {
