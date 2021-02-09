@@ -30,20 +30,6 @@ const Theme: FunctionComponent = ({ children }) => {
     setTheme(systemTheme);
   }, [systemTheme]);
 
-  useEffect(() => {
-    const media = window.matchMedia('(prefers-color-scheme: dark)');
-
-    const mediaHandler = (event: MediaQueryListEvent): void => {
-      const preferedTheme = window.localStorage.getItem('theme') as 'dark' | 'light' | null;
-      const theme = event.matches ? 'dark' : 'light';
-      if (preferedTheme) return;
-      window.__updateTheme(theme);
-    };
-
-    media.addEventListener('change', mediaHandler);
-    return () => media.removeEventListener('change', mediaHandler);
-  }, []);
-
   return (
     <ThemeProvider theme={{ name: theme, toggle: toggleThme }}>
       {children}

@@ -48,6 +48,19 @@ const MagicScriptTag = () => {
     meta.content = color;
   }
 })();
+
+(function() {
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+  const mediaHandler = (event) => {
+    const preferedTheme = window.localStorage.getItem('theme');
+    const theme = event.matches ? 'dark' : 'light';
+    if (preferedTheme) return;
+    window.__updateTheme(theme);
+  };
+
+  media.addEventListener('change', mediaHandler);
+})();
 `;
 
   return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />;
