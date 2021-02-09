@@ -4,7 +4,7 @@ import { Theme } from './types';
 
 export default function useSystemTheme(): Theme {
   const isRendered = typeof window !== 'undefined';
-  const [theme, setTheme] = useState<Theme>('');
+  const [theme, setTheme] = useState<Theme>();
 
   useEffect(() => {
     if (!isRendered) return;

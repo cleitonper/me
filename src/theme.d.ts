@@ -2,7 +2,7 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    name: 'light' | 'dark' | '';
+    name: 'light' | 'dark' | undefined;
     toggle: () => void;
   }
 }

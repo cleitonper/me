@@ -6,7 +6,7 @@ import { ThemeMode } from './types';
 
 const Theme: FunctionComponent = ({ children }) => {
   const systemTheme = useSystemTheme();
-  const [theme, setTheme] = useState<ThemeMode>(() => '');
+  const [theme, setTheme] = useState<ThemeMode>();
 
   const toggleThme = useCallback((): void => {
     setTheme((currentTheme) => {
