@@ -7,7 +7,12 @@ const ThemeToggle: FunctionComponent<Props> = ({ className }) => {
   const theme = useContext(ThemeContext);
 
   return (
-    <button className={`${className} ${theme.name || 'hidden'}`} onClick={theme.toggle} title="Mudar tema">
+    <button
+      data-testid="toggle-theme"
+      className={`${className} ${theme.name || 'hidden'}`}
+      onClick={theme.toggle}
+      title="Mudar tema"
+    >
       <noscript>
         <IoIosSunny className="sun fallback" title="Usando o Modo Claro" />
       </noscript>
