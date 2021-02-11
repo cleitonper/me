@@ -20,4 +20,9 @@ describe('Component: PostImage', () => {
     expect(renderedImage).toHaveAttribute('alt', alt);
     expect(renderedImage).toHaveAttribute('src', image.src);
   });
+
+  it('should not render when there is not an image', () => {
+    const { container } = render(<PostImage />);
+    expect(container.children).toHaveLength(0);
+  });
 });
