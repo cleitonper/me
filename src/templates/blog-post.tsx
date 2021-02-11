@@ -28,7 +28,7 @@ const BlogPost: FunctionComponent<Props> = ({ data }) => {
 
   return (
     <>
-      <PostImage image={image.childImageSharp?.fluid} alt={title} />
+      <PostImage image={image?.childImageSharp?.fluid} alt={title} />
       <PostTitle>
         {title}
       </PostTitle>

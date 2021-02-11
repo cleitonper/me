@@ -3,13 +3,13 @@ import { FluidObject } from 'gatsby-image';
 
 
 export interface Post {
-  date: string;
-  title: string;
-  subtitle: string;
-  image: GatsbyImage<FluidObject>;
-  link: string;
+  date?: string;
+  title?: string;
+  subtitle?: string;
+  image?: GatsbyImage<FluidObject>;
+  link?: string;
 }
 
 export interface Props {
-  posts: Post[];
+  posts?: Post[];
 }

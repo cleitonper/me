@@ -34,10 +34,14 @@ const Container = styled('section')`
 `;
 
 
-const PostList: FunctionComponent<Props> = ({ posts }) => (
-  <Container>
-    { posts.map((post, index) => <Card key={`post-${index}`} {...post} />) }
-  </Container>
-);
+const PostList: FunctionComponent<Props> = ({ posts }) => {
+  if (!posts) return null;
+
+  return (
+    <Container data-testid="post-list">
+      { posts.map((post, index) => <Card key={`post-${index}`} {...post} />) }
+    </Container>
+  );
+};
 
 export default PostList;
