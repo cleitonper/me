@@ -66,6 +66,7 @@ const Card: FunctionComponent<Props> = ({
   <Container className={ className }>
     {image?.childImageSharp?.fluid &&
       <Img
+        alt={title}
         fluid={image.childImageSharp.fluid}
         imgStyle={{ objectFit: 'cover', objectPosition: 'center', height: '170px' }}
       />
