@@ -188,7 +188,7 @@ const BannerJob: FunctionComponent<Props> = ({
             label="Fonte"
           />
         </JobLinks>
-        <JobFooter>
+        <JobFooter data-testid="footer">
           {tags?.map(
             (tag) =>
               <Tag
