@@ -189,7 +189,7 @@ const BannerJob: FunctionComponent<Props> = ({
           />
         </JobLinks>
         <JobFooter>
-          {tags.map(
+          {tags?.map(
             (tag) =>
               <Tag
                 key={tag.name}
