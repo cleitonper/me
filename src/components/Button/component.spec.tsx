@@ -2,6 +2,10 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { Button } from '.';
 
+
+jest.mock('gatsby', () => require('~config/jest/mock/gatsby'));
+
+
 describe('Component: Button', () => {
   it('should use default fill class', () => {
     const buttonText = 'Click';
