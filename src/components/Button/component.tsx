@@ -97,6 +97,7 @@ const Button = forwardRef<any, Props>(({
 
   const internalLink = (
     <Link
+      data-testid="button"
       onClick={scrollIntoView}
       className={classes}
       to={href || '/'}
