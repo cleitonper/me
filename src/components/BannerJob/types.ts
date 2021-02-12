@@ -6,9 +6,9 @@ export interface Job {
   name?: string;
   source?: string;
   demo?: string;
-  image: GatsbyImage;
-  description: string;
-  tags: Tag[];
+  image?: GatsbyImage;
+  description?: string;
+  tags?: Tag[];
 }
 export interface Props extends HTMLAttributes<HTMLElement>, Job {
   className?: string;

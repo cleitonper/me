@@ -3,7 +3,8 @@ import { render, fireEvent } from '@testing-library/react';
 import { BannerJob } from '.';
 
 const props = {
-  link: '#',
+  demo: '#',
+  source: '#',
   description: 'My Fake Job',
   image: {
     childImageSharp: {
@@ -43,6 +44,12 @@ describe('Component: BannerJob', () => {
     expect(renderedTagList).toHaveLength(props.tags.length);
   });
 
+  it('should not render the tags when there is not tags', () => {
+    const { getByTestId } = render(<BannerJob image={props.image} />);
+    const footer = getByTestId('footer');
+    expect(footer.children).toHaveLength(0);
+  });
+
   it('should show job details when click in its banner', () => {
     const { getByTestId } = render(<BannerJob {...props} />);
     const Banner = getByTestId('banner-button');
@@ -60,5 +67,10 @@ describe('Component: BannerJob', () => {
     fireEvent.click(container);
 
     expect(Banner).not.toHaveClass('is-open');
+  });
+
+  it('should not render when there is not an image', () => {
+    const { container } = render(<BannerJob />);
+    expect(container.children).toHaveLength(0);
   });
 });

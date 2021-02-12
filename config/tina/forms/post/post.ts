@@ -52,7 +52,7 @@ export const postFormOptions = {
 };
 
 
-export const CreatePostPlugin = new RemarkCreatorPlugin<FormShape<Post>>({
+export const CreatePostPlugin = new RemarkCreatorPlugin<FormShape<Required<Post>>>({
   fields,
   label: 'Novo Post',
   filename: (form) => {

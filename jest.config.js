@@ -9,6 +9,7 @@ module.exports = {
   setupFilesAfterEnv: [
     '@testing-library/jest-dom/extend-expect',
     '<rootDir>/config/jest/mock/matchMedia.ts',
+    '<rootDir>/config/jest/mock/loadershim.ts',
   ],
   testPathIgnorePatterns: [
     'node_modules',
