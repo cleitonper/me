@@ -18,7 +18,7 @@
     "lint:fix": "yarn lint:check --fix",
     "lint:staged": "lint-staged",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
+    "cypress:run": "cypress run --record",
     "test:e2e:open": "NODE_ENV=tests start-server-and-test develop http://localhost:8000 cypress:open",
     "test:e2e": "NODE_ENV=tests start-server-and-test develop http://localhost:8000 cypress:run",
     "test:unit": "jest"
