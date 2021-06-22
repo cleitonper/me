@@ -7,6 +7,10 @@ cache:
     - ~/.npm
     - ~/.cache
     - node_modules
+install:
+  - yarn install --frozen-lockfile
+  - yarn cypress install
+  - yarn cypress verify
 stages:
   - Static Analysis
   - Tests
