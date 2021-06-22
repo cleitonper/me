@@ -13,7 +13,7 @@ Cypress.Commands.add('mockGraphQL', (handler) => {
         return responseStub(handler(JSON.parse(body)));
       }
 
-      return originlaFetch.apply(this, arguments);
+      return originlaFetch.apply(this, arguments); // eslint-disable-line prefer-rest-params
     }
 
     cy.stub(win, 'fetch').callsFake(fetch);
