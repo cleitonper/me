@@ -7,10 +7,6 @@ cache:
     - ~/.npm
     - ~/.cache
     - node_modules
-install:
-  - yarn install --frozen-lockfile
-  - yarn cypress install
-  - yarn cypress verify
 stages:
   - Static Analysis
   - Tests
@@ -27,6 +23,10 @@ jobs:
       script: yarn test:unit
     - name: integration
       script: yarn test:e2e
+      install:
+        - yarn install --frozen-lockfile
+        - yarn cypress install
+        - yarn cypress verify
     - stage: Build
       name: production
       script: yarn build
