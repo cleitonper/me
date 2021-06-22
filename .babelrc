@@ -1,0 +1,8 @@
+{
+  "env": {
+    "tests": {
+      "plugins": ["istanbul"]
+    }
+  },
+  "presets": ["gatsby"]
+}

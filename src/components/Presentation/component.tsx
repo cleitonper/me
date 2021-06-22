@@ -8,7 +8,7 @@ import { Props } from './types';
 
 const Presentation: FunctionComponent<Props> = ({ className }) => {
   return (
-    <section className={className}>
+    <section className={className} data-testid="presentation">
       <Avatar src={me} alt="Eu" />
       <h1 className="name">Cleiton da Silva</h1>
       <span className="role">Desenvolvedor Web</span>
@@ -22,7 +22,7 @@ const Presentation: FunctionComponent<Props> = ({ className }) => {
       >
         -
       </a>
-      <Button href="#main-footer">Contato</Button>
+      <Button href="#main-footer" data-testid="CTA">Contato</Button>
       <Mouse />
     </section>
   );

@@ -32,4 +32,7 @@
     "./src/**/*",
     "node_modules/@testing-library/jest-dom/extend-expect.d.ts"
   ],
+  "exclude": [
+    "./tests/**/*"
+  ]
 }

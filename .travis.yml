@@ -19,6 +19,8 @@ jobs:
     - stage: Tests
       name: unit
       script: yarn test:unit
+    - name: integration
+      script: yarn test:e2e
     - stage: Build
       name: production
       script: yarn build

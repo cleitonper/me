@@ -71,7 +71,7 @@ const Button = forwardRef<any, Props>(({
     <button
       {...props}
       className={classes}
-      data-testid="button"
+      data-testid={props['data-testid'] || 'button'}
       onClick={onClick}
       ref={ref as Ref<HTMLButtonElement>}
     >
@@ -89,7 +89,7 @@ const Button = forwardRef<any, Props>(({
         className={classes}
         onClick={onClick}
         ref={ref as Ref<HTMLAnchorElement>}
-        data-testid="button"
+        data-testid={props['data-testid'] || 'button'}
       >
         {children}
       </a>
@@ -97,7 +97,7 @@ const Button = forwardRef<any, Props>(({
 
   const internalLink = (
     <Link
-      data-testid="button"
+      data-testid={props['data-testid'] || 'button'}
       onClick={scrollIntoView}
       className={classes}
       to={href || '/'}

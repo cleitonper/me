@@ -17,7 +17,16 @@
     "lint:check": "eslint --ext ts,tsx --ignore-path .gitignore .",
     "lint:fix": "yarn lint:check --fix",
     "lint:staged": "lint-staged",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --record",
+    "test:e2e:open": "NODE_ENV=tests start-server-and-test develop http://localhost:8000 cypress:open",
+    "test:e2e": "NODE_ENV=tests start-server-and-test develop http://localhost:8000 cypress:run",
     "test:unit": "jest"
+  },
+  "nyc": {
+    "all": true,
+    "include": "src/components/**/*.{ts,tsx}",
+    "exclude": "src/components/**/*.spec.{ts,tsx}"
   },
   "dependencies": {
     "react": "^16.12.0",
@@ -60,6 +69,7 @@
   "devDependencies": {
     "typescript": "^4.1.0",
     "@babel/core": "^7.8.0",
+    "@testing-library/cypress": "^7.0.0",
     "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/react": "^11.2.0",
     "@types/classnames": "^2.2.0",
@@ -71,13 +81,19 @@
     "@types/styled-components": "^5.1.0",
     "@typescript-eslint/eslint-plugin": "^4.14.0",
     "@typescript-eslint/parser": "^4.14.0",
+    "@cypress/code-coverage": "^3.9.0",
     "eslint": "^6.8.0",
     "eslint-plugin-jest": "^24.1.0",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
+    "eslint-plugin-cypress": "^2.11.0",
+    "babel-preset-gatsby": "^1.7.0",
+    "babel-plugin-istanbul": "^6.0.0",
     "husky": "^4.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.0",
+    "cypress": "^6.4.0",
+    "start-server-and-test": "^1.12.0",
     "lint-staged": "^9.5.0",
     "ts-jest": "^26.5.0"
   }
