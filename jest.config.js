@@ -14,6 +14,7 @@ module.exports = {
   testPathIgnorePatterns: [
     'node_modules',
     '.cache',
+    'tests',
   ],
   moduleFileExtensions: [
     'ts',
