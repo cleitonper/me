@@ -13,14 +13,15 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "start:prod": "npm run build && npm run serve -- --port 8000",
     "type:check": "tsc",
     "lint:check": "eslint --ext ts,tsx --ignore-path .gitignore .",
     "lint:fix": "yarn lint:check --fix",
     "lint:staged": "lint-staged",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run --record",
-    "test:e2e:open": "NODE_ENV=tests start-server-and-test develop http://localhost:8000 cypress:open",
-    "test:e2e": "NODE_ENV=tests start-server-and-test develop http://localhost:8000 cypress:run",
+    "test:e2e:open": "CYPRESS_ENVIRONMENT=dev start-server-and-test develop http://localhost:8000 cypress:open",
+    "test:e2e": "CYPRESS_ENVIRONMENT=prod start-server-and-test start:prod http://localhost:8000 cypress:run",
     "test:unit": "jest"
   },
   "nyc": {
