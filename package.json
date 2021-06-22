@@ -27,7 +27,8 @@
   "nyc": {
     "all": true,
     "include": "src/components/**/*.{ts,tsx}",
-    "exclude": "src/components/**/*.spec.{ts,tsx}"
+    "exclude": "src/components/**/*.spec.{ts,tsx}",
+    "report-dir": "coverage/integration"
   },
   "dependencies": {
     "react": "^16.12.0",

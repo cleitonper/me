@@ -21,12 +21,19 @@ jobs:
     - stage: Tests
       name: unit
       script: yarn test:unit
+      install:
+        - yarn global add codecov
+      after_success:
+        - codecov --disable gcov -f ./coverage/unit/lcov.info -F unit
     - name: integration
       script: yarn test:e2e
       install:
+        - yarn global add codecov
         - yarn install --frozen-lockfile
         - yarn cypress install
         - yarn cypress verify
+      after_success:
+        - codecov --disable gcov -f ./coverage/integration/lcov.info -F integration
     - stage: Build
       name: production
       script: yarn build
