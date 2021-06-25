@@ -17,7 +17,7 @@ social:
       name: linkedin-in
       pack: fab
   - title: Whatsapp
-    link: 'https://api.whatsapp.com/send?phone=5521965791916&text=Oi%20(%3B'
+    link: 'https://api.whatsapp.com/send?phone=5521999311716&text=%F0%9F%91%8B'
     icon:
       name: whatsapp
       pack: fab

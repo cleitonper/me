@@ -3,9 +3,10 @@ title: ''
 skills:
   - title: Frontend
     description: |
-      Gosto de trabalhar com Design Clean, com a
-      arquitetura JAMStack e com desenvolvimento baseado
-      em componentes.
+      Desenvolvimento de interfaces para web
+      com o uso componentes reutilizáveis e com
+      funcionamento validado por meio de testes
+      automatizados
     icon:
       pack: fas
       name: pencil-ruler
@@ -13,27 +14,28 @@ skills:
       - name: HTML
       - name: CSS
       - name: Javascript
-      - name: Vue
       - name: React
+      - name: Styled Components
   - title: Backend
     description: |
-      Em uma aplicação dividada em responsabilidades,
-      o back-end deve ter o papel de gerenciamento de dados
-      e regras de negócio.
+      Criação de Web APIs baseadas nos padrões REST com
+      infraestrutura utilizando containers e implantação
+      em serviços de Nuvem como AWS Cloudformation e Heroku
     icon:
       pack: fas
       name: server
     tools:
-      - name: Node
-      - name: Express
-      - name: Nest
-      - name: MySQL
-      - name: MongoDB
-  - title: Produtividade
+      - name: Node / Express
+      - name: Elixir / Phoenix
+      - name: Docker / Docker Compose
+      - name: Swagger
+      - name: SQL
+  - title: Diversos
     description: |
-      Algumas ferramentas que considero importantes
-      no desenvolvimento de uma aplicação, seja frontend
-      ou backend.
+      Versionamento, gerenciamento de dependências e
+      produtividade na leitura e escrita de código são
+      aspectos essenciais no desenvolvimento de uma aplicação
+      nos dias atuais.
     icon:
       pack: fas
       name: hammer

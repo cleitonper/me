@@ -1,21 +1,21 @@
 ---
 title: ''
 jobs:
-  - name: IERF
-    description: Site da Igreja Evangélica Rompendo em Fé
-    source: 'https://gitlab.com/cleitonper/ierf#readme'
-    demo: 'https://ierf.netlify.app'
-    image: ../../../static/img/jobs/fe.jpg
+  - name: Rocketpay
+    description: Sistema para processamento de transações financeiras
+    source: 'https://github.com/cleitonper/rocketpay/#readme'
+    demo: 'https://api.rocketpay.tk'
+    image: ../../../static/img/jobs/rocketpay.jpg
     tags:
-      - name: '#frontend'
-        background: '#f7e017'
-        foreground: '#000000'
-      - name: '#vue'
-        background: '#42B983'
-        foreground: '#222222'
-      - name: '#nuxt'
-        background: '#F5F5F5'
-        foreground: '#2C3E50'
+      - name: '#elixir'
+        background: '#4A3560'
+        foreground: '#FFFFFF'
+      - name: '#phoenix'
+        background: '#FD4F00'
+        foreground: '#FFFFFF'
+      - name: '#docker'
+        background: '#1993EF'
+        foreground: '#FFFFFF'
   - name: Linear
     description: Calculadora de Sistemas de Equações Lineares
     source: 'https://github.com/cleitonper/linear/#readme'
@@ -31,6 +31,21 @@ jobs:
       - name: '#typescript'
         background: '#0476D9'
         foreground: '#EBF2F2'
+  - name: IERF
+    description: Site da Igreja Evangélica Rompendo em Fé
+    source: 'https://gitlab.com/cleitonper/ierf#readme'
+    demo: 'https://ierf.netlify.app'
+    image: ../../../static/img/jobs/fe.jpg
+    tags:
+      - name: '#frontend'
+        background: '#f7e017'
+        foreground: '#000000'
+      - name: '#vue'
+        background: '#42B983'
+        foreground: '#222222'
+      - name: '#nuxt'
+        background: '#F5F5F5'
+        foreground: '#2C3E50'
   - name: Doom Fire
     description: Implementação em Vue do Fogo do jogo Doom
     source: 'https://github.com/cleitonper/doom-fire-algorithm/#readme'
@@ -74,18 +89,4 @@ jobs:
       - name: '#nest'
         background: '#131313'
         foreground: '#e0234e'
-  - name: DT3
-    description: Home page da marca de Cadeiras Gamers DT3
-    source: 'https://github.com/cleitonper/dt3/#readme'
-    image: ../../../static/img/jobs/dt3.jpg
-    tags:
-      - name: '#html'
-        background: '#FF530D'
-        foreground: '#FFFFFF'
-      - name: '#css'
-        background: '#0990FF'
-        foreground: '#FFFFFF'
-      - name: '#php'
-        background: '#8892BF'
-        foreground: '#222530'
 ---
