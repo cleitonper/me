@@ -24,7 +24,12 @@ module.exports = {
     'gatsby-plugin-layout',
     {
       resolve: 'gatsby-transformer-remark',
-      options: { plugins: ['gatsby-remark-prismjs'] },
+      options: {
+        plugins: [
+          'gatsby-remark-prismjs',
+          '@pauliescanlon/gatsby-remark-sticky-table'
+        ]
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
