@@ -78,13 +78,45 @@ const style = css`
     margin-bottom: 2.50em;
   }
 
+  table {
+    margin-top: 1rem;
+    border-collapse: collapse;
+  }
+
+  table th,
+  table td {
+    transition: all 450ms;
+    vertical-align: middle;
+    letter-spacing: 0.050em;
+    line-height: 1.25em;
+  }
+
+  table th {
+    font-weight: 600;
+    padding: 0.90em 1.50em 0.90em 0.75em;
+  }
+
+  table td {
+    font-weight: 500;
+    padding: 0.50em 1.50em 0.50em 0.75em;
+  }
+
+  table th,
+  table tbody:nth-child(odd) td {
+    background-color: var(--table-row-background-a);
+  }
+
+  table tbody:nth-child(even) td {
+    background-color: var(--table-row-background-b);
+  }
+
   @media (max-width: 767px) {
     h3 { font-size: 1.40rem; }
     h4 { font-size: 1.35rem; }
     h5 { font-size: 1.30rem; }
     h6 { font-size: 1.25rem; }
 
-    p, li, .gatsby-highlight { font-size: 1.25rem; }
+    p, li, table, .gatsby-highlight { font-size: 1.25rem; }
 
     p, li { letter-spacing: 0.070em; }
     h3, h4, h5, h6 { letter-spacing: 0.050em; }
@@ -96,7 +128,7 @@ const style = css`
     h5 { font-size: calc(1.00rem + 1vw); }
     h6 { font-size: calc(0.90rem + 1vw); }
 
-    p, li, .gatsby-highlight { font-size: calc(0.75rem + 1vw); }
+    p, li, table, .gatsby-highlight { font-size: calc(0.75rem + 1vw); }
 
     p, li { letter-spacing: 0.030em; }
     h3, h4, h5, h6 { letter-spacing: 0.045em; }
