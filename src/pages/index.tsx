@@ -131,7 +131,7 @@ query {
     nodes {
       childMarkdownRemark {
         frontmatter {
-          date(formatString: "DD [de] MMMM", locale: "pt-br")
+          date(formatString: "DD [de] MMMM [de] YYYY", locale: "pt-br")
           title
           subtitle
           image {
