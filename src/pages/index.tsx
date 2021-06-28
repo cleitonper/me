@@ -127,11 +127,11 @@ query {
     }
     ...TinaRemark
   }
-  posts: allFile(filter: {sourceInstanceName: {eq: "blog"}}, limit: 3, sort: {fields: birthTime, order: ASC}) {
+  posts: allFile(filter: {sourceInstanceName: {eq: "blog"}}, limit: 3, sort: {fields: childMarkdownRemark___frontmatter___date, order: DESC}) {
     nodes {
       childMarkdownRemark {
         frontmatter {
-          date(formatString: "DD [de] MMMM", locale: "pt-br")
+          date(formatString: "DD [de] MMMM [de] YYYY", locale: "pt-br")
           title
           subtitle
           image {
