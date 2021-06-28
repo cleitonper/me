@@ -5,7 +5,7 @@ subtitle: |
   Nesta introdução ao estilo arquitetural REST, falaremos sobre
   os benefícios do seu uso, quais restrições o padrão introduz
   e os elementos que compõem a arquitetura.
-date: '2020-06-22T01:00:00.000Z'
+date: '2021-06-25T01:00:00.000Z'
 ---
 Transferência Representacional de Estado, em inglês Representational State Transfer (REST),
 é um estilo arquitetural introduzido por Roy Thomas Fielding no ano 2000 em sua tese de doutorado
