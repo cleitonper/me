@@ -14,11 +14,11 @@ const ResponsiveImage: FunctionComponent<Props> = ({
   title,
   alt,
 }) => {
-  const imageClassName = !image?.desktop_image && !image?.mobile_image
-    ? className
-    : image?.desktop_image && image?.mobile_image
-      ? `${className} fluid-image`
-      : `${className} fixed-image`;
+  if (!image?.desktop_image && !image?.mobile_image) return null;
+
+  const imageClassName = image?.desktop_image && image?.mobile_image
+    ? `${className} fluid-image`
+    : `${className} fixed-image`;
 
   const isFluid = image?.desktop_image?.extension !== 'gif' && image?.mobile_image?.extension !== 'gif';
 
