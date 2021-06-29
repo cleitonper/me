@@ -1,6 +1,7 @@
 ---
 title: 'REST: Introdução à Arquitetura'
-image: ../../../static/img/posts/rest__introducao.png
+desktop_image: ../../../static/img/posts/rest__introducao.png
+mobile_image: ../../../static/img/posts/rest__introducao___mobile.png
 subtitle: |
   Nesta introdução ao estilo arquitetural REST, falaremos sobre
   os benefícios do seu uso, quais restrições o padrão introduz

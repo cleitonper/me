@@ -1,10 +1,9 @@
 ---
-title: Contexto, o que é isso?
-image: ../../../static/img/posts/you-got-this.jpg
+title: 'Contexto, o que é isso?'
+desktop_image: ../../../static/img/posts/you-got-this.jpg
 subtitle: >-
-  Vamos entender melhor qual o significado da palavra reservada this
-  e quais valores esse ponteiro pode assumir em diferentes contextos
-  de execução.
+  Vamos entender melhor qual o significado da palavra reservada this e quais
+  valores esse ponteiro pode assumir em diferentes contextos de execução.
 date: '2020-02-25T01:00:00.000Z'
 ---
 Neste artigo vamos falar um pouco sobre contexto no javascript, e como funciona a palavra reservada `this`.

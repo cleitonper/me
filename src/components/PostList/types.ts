@@ -1,12 +1,13 @@
 import { GatsbyImage } from '~types/GatsbyImage';
-import { FluidObject } from 'gatsby-image';
+import { FluidObject, FixedObject } from 'gatsby-image';
 
 
 export interface Post {
   date?: string;
   title?: string;
   subtitle?: string;
-  image?: GatsbyImage<FluidObject>;
+  desktop_image?: GatsbyImage<FluidObject, FixedObject>;
+  mobile_image?: GatsbyImage<FluidObject, FixedObject>;
   link?: string;
 }
 
