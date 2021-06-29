@@ -128,6 +128,12 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-advanced-sitemap',
+      options: {
+        output: "/sitemap.xml"
+      }
+    },
+    {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
