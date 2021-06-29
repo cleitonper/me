@@ -38,6 +38,8 @@ const ResponsiveImage: FunctionComponent<Props> = ({
 
   if (!fluidImage) return (
     <img
+      alt={alt}
+      title={title}
       className={`${className} image`}
       src={desktopImage?.src}
       srcSet={`
