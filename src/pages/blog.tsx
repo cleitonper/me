@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
 import { withPlugin } from 'tinacms';
 import React, { FunctionComponent } from 'react';
+import { SEO } from '~components/SEO';
 import { PageTitle } from '~components/PageTitle';
 import { PageSubtitle } from '~components/PageSubtitle';
 import { PostList } from '~components/PostList';
@@ -14,15 +15,23 @@ const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
     link: `/blog${node.childMarkdownRemark.fields.slug}`,
   }));
 
+  const title = 'Blog'
+  const subtitle = '' +
+    'Tutoriais sobre o funcionamento do javascript, framweorks, ' +
+    'bibliotecas e dicas de ferramentas para se trabalhar com a ' +
+    'linguagem da web.';
+
   return (
     <>
+      <SEO
+        title={title}
+        description={subtitle}
+      />
       <PageTitle>
         Blog
       </PageTitle>
       <PageSubtitle>
-        Tutoriais sobre o funcionamento do javascript, framweorks,
-        bibliotecas e dicas de ferramentas para se trabalhar com a
-        linguagem da web.
+        {subtitle}
       </PageSubtitle>
       <PostList posts={posts} />
     </>

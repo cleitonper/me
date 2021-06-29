@@ -4,6 +4,7 @@ import { InlineForm } from 'react-tinacms-inline';
 import { useRemarkForm } from 'gatsby-tinacms-remark';
 import React, { FunctionComponent } from 'react';
 import { BlogPostQuery, PostQuery } from '~types/BlogPostQuery';
+import { SEO } from '~components/SEO';
 import { PostImage } from '~components/PostImage';
 import { PostTitle } from '~components/PostTitle';
 import { PostSubtitle } from '~components/PostSubtitle';
@@ -28,6 +29,11 @@ const BlogPost: FunctionComponent<Props> = ({ data }) => {
 
   return (
     <>
+      <SEO
+        title={title}
+        description={subtitle}
+        pageType="article"
+      />
       <PostImage image={image?.childImageSharp?.fluid} alt={title} />
       <PostTitle>
         {title}
