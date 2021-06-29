@@ -41,7 +41,7 @@ const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
 
 export const query = graphql`
 query PostsQuery {
-  allFile(filter: {sourceInstanceName: {eq: "blog"}}) {
+  allFile(filter: {sourceInstanceName: {eq: "blog"}}, sort: {fields: childMarkdownRemark___frontmatter___date, order: DESC}) {
     nodes {
       childMarkdownRemark {
         frontmatter {
