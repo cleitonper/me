@@ -15,7 +15,7 @@ const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
     link: `/blog${node.childMarkdownRemark.fields.slug}`,
   }));
 
-  const title = 'Blog'
+  const title = 'Blog';
   const subtitle = '' +
     'Tutoriais sobre o funcionamento do javascript, framweorks, ' +
     'bibliotecas e dicas de ferramentas para se trabalhar com a ' +
