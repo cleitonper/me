@@ -12,7 +12,7 @@ describe('Component: Card', () => {
     const date = '02/10/2021';
     const linkLabel = 'Ir para o artigo';
 
-    const image = {
+    const desktop_image = {
       childImageSharp: {
         fluid: {
           aspectRatio: 1,
@@ -23,7 +23,7 @@ describe('Component: Card', () => {
       }
     };
 
-    const props: Post = { title, subtitle, link, date, image };
+    const props: Post = { title, subtitle, link, date, desktop_image };
 
     const { getByText, getByAltText } = render(<Card {...props} />);
 
@@ -33,7 +33,7 @@ describe('Component: Card', () => {
     const renderedDate = getByText(date);
     const renderedLink = getByText(linkLabel);
 
-    expect(renderedImage).toHaveAttribute('src', image.childImageSharp.fluid.src);
+    expect(renderedImage).toHaveAttribute('src', desktop_image.childImageSharp.fluid.src);
     expect(renderedImage).toHaveAttribute('alt', title);
     expect(renderedTitle).toHaveTextContent(title);
     expect(renderedSubtitle).toHaveTextContent(subtitle);
