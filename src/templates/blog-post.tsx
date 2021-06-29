@@ -25,7 +25,8 @@ const BlogPost: FunctionComponent<Props> = ({ data }) => {
 
   const { markdownRemark } = data;
   const { timeToRead, html } = markdownRemark;
-  const { image, title, subtitle, date } = markdownRemark.frontmatter;
+  const { desktop_image, mobile_image, title, subtitle, date } = markdownRemark.frontmatter;
+  const image = { desktop_image, mobile_image };
 
   return (
     <>
@@ -34,7 +35,11 @@ const BlogPost: FunctionComponent<Props> = ({ data }) => {
         description={subtitle}
         pageType="article"
       />
-      <PostImage image={image?.childImageSharp?.fluid} alt={title} />
+      <PostImage
+        alt={title}
+        title={title}
+        image={image}
+      />
       <PostTitle>
         {title}
       </PostTitle>
@@ -64,9 +69,16 @@ export const query = graphql`
         title
         subtitle
         date(formatString: "DD [de] MMM [de] YYYY", locale: "pt-br")
-        image {
+        desktop_image {
           childImageSharp {
-            fluid(jpegQuality: 100, maxWidth: 1920, srcSetBreakpoints: [360, 480, 768, 1024, 1200, 1440, 1920]) {
+            fluid(jpegQuality: 100, maxWidth: 1920, srcSetBreakpoints: [1024, 1200, 1440, 1920]) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        mobile_image {
+          childImageSharp {
+            fluid(jpegQuality: 100, maxWidth: 1920, srcSetBreakpoints: [360, 480, 768, 1023]) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }

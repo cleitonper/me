@@ -1,8 +1,1 @@
-import { FluidObject } from 'gatsby-image';
-
-
-export interface Props {
-  className?: string;
-  image?: FluidObject;
-  alt?: string;
-}
+export { Props } from '~components/ResponsiveImage/types';

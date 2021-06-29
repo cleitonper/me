@@ -48,7 +48,7 @@ query PostsQuery {
           date(formatString: "DD [de] MMMM [de] YYYY", locale: "pt-br")
           title
           subtitle
-          image {
+          desktop_image {
             childImageSharp {
               fluid(jpegQuality: 100, maxWidth: 1024, srcSetBreakpoints: [360, 480, 768, 1024]) {
                 ...GatsbyImageSharpFluid_tracedSVG

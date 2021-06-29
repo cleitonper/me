@@ -1,20 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
 
+import { ResponsiveImage } from '~components/ResponsiveImage';
 import { Props } from './types';
 
 
-const PostImage: FunctionComponent<Props> = ({ className, image, alt }) =>  {
-  if (!image) return null;
-
+const PostImage: FunctionComponent<Props> = (props) => {
   return (
-    <Img
-      alt={alt}
-      fluid={image}
-      imgStyle={{ objectFit: 'cover', objectPosition: 'center' }}
-      className={className}
-    />
+    <ResponsiveImage {...props} />
   );
 };
 

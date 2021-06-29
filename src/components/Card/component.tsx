@@ -59,15 +59,15 @@ const Card: FunctionComponent<Props> = ({
   className,
   title,
   subtitle,
-  image,
+  desktop_image,
   date,
   link,
 }) => (
   <Container className={ className }>
-    {image?.childImageSharp?.fluid &&
+    {desktop_image?.childImageSharp?.fluid &&
       <Img
         alt={title}
-        fluid={image.childImageSharp.fluid}
+        fluid={desktop_image.childImageSharp.fluid}
         imgStyle={{ objectFit: 'cover', objectPosition: 'center', height: '170px' }}
       />
     }
