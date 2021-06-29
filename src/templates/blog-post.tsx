@@ -33,6 +33,7 @@ const BlogPost: FunctionComponent<Props> = ({ data }) => {
       <SEO
         title={title}
         description={subtitle}
+        banner={desktop_image?.childImageSharp?.fluid?.src}
         pageType="article"
       />
       <PostImage
