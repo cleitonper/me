@@ -11,7 +11,7 @@ module.exports = {
     bannerAlt:
       'Logo do Site. A letra C na cor branca ' +
       'por cima de um quadradro preto com cantos arredondados.',
-    siteUrl: 'http://localhost:8000',
+    siteUrl: 'https://cleiton.netlify.app',
     twitter: '@cleitonsper',
   },
   plugins: [
