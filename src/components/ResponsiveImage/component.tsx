@@ -16,10 +16,6 @@ const ResponsiveImage: FunctionComponent<Props> = ({
 }) => {
   if (!image?.desktop_image && !image?.mobile_image) return null;
 
-  const imageClassName = image?.desktop_image && image?.mobile_image
-    ? `${className} fluid-image`
-    : `${className} fixed-image`;
-
   const isFluid = image?.desktop_image?.extension !== 'gif' && image?.mobile_image?.extension !== 'gif';
 
   const mobileImage = isFluid
@@ -42,7 +38,7 @@ const ResponsiveImage: FunctionComponent<Props> = ({
 
   if (!fluidImage) return (
     <img
-      className={`${imageClassName} image`}
+      className={`${className} image`}
       src={desktopImage?.src}
       srcSet={`
         ${desktopImage?.srcSet ? `${desktopImage.srcSet},` : ''}
@@ -59,7 +55,7 @@ const ResponsiveImage: FunctionComponent<Props> = ({
     <Img
       alt={alt}
       title={title}
-      className={imageClassName}
+      className={className}
       imgStyle={{ objectFit, objectPosition }}
       fluid={fluidImage}
     />
