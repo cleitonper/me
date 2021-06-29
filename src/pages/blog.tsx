@@ -41,11 +41,11 @@ const BlogPage: FunctionComponent<PostsQuery> = ({ data }) => {
 
 export const query = graphql`
 query PostsQuery {
-  allFile(filter: {sourceInstanceName: {eq: "blog"}}) {
+  allFile(filter: {sourceInstanceName: {eq: "blog"}}, sort: {fields: childMarkdownRemark___frontmatter___date, order: DESC}) {
     nodes {
       childMarkdownRemark {
         frontmatter {
-          date(formatString: "DD [de] MMMM", locale: "pt-br")
+          date(formatString: "DD [de] MMMM [de] YYYY", locale: "pt-br")
           title
           subtitle
           image {
