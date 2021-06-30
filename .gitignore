@@ -71,3 +71,7 @@ yarn-error.log
 # Cypress
 tests/videos
 tests/screenshots
+
+# Environment Files
+.env.*
+!.env.example
