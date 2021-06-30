@@ -4163,6 +4163,11 @@
     "@types/glob" "*"
     "@types/node" "*"
 
+"@types/segment-analytics@^0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@types/segment-analytics/-/segment-analytics-0.0.30.tgz#aa890bb31c5e5f8bd2b884325e533febd13b7221"
+  integrity sha512-BFIYXHLbdiojrQy6C4nuuiMKCrcYi1VNtNsdN7Lmm0KnKj8Q4pJB/1X7InVM6Vac2i1hfjAaoGKBydjsCfMYJA==
+
 "@types/sinonjs__fake-timers@^6.0.1":
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/@types/sinonjs__fake-timers/-/sinonjs__fake-timers-6.0.2.tgz#3a84cf5ec3249439015e14049bd3161419bf9eae"
@@ -10015,6 +10020,11 @@ gatsby-plugin-robots-txt@^1.6.0:
   dependencies:
     "@babel/runtime" "^7.14.0"
     generate-robotstxt "^8.0.3"
+
+gatsby-plugin-segment-js@^3.6.0:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-segment-js/-/gatsby-plugin-segment-js-3.6.1.tgz#6a10fc8273f20942f7da2973e93364371d253575"
+  integrity sha512-HpaTw/yAip+b+VLGEq8T8XoxggQA7ibEH5YsF8v3L5AvaXABukSfgAH0Vw9adUGw9x6VJQS/2l/ceIqoIUsbug==
 
 gatsby-plugin-sharp@^2.12.0:
   version "2.12.0"

@@ -145,6 +145,18 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-segment-js',
+      options: {
+        prodKey: process.env.SEGMENT_PRODUCTION_WRITE_KEY,
+        devKey: process.env.SEGMENT_DEV_WRITE_KEY,
+        trackPage: true,
+        trackPageDelay: 100,
+        delayLoad: true,
+        delayLoadTime: 500,
+        manualLoad: false
+      }
+    },
+    {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
