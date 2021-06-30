@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useCallback } from 'react';
 import styled from 'styled-components';
 import me from '~assets/img/me.jpg';
 import { Avatar } from '~components/Avatar';
@@ -7,6 +7,10 @@ import { Mouse } from '~components/Mouse';
 import { Props } from './types';
 
 const Presentation: FunctionComponent<Props> = ({ className }) => {
+  const trackContactCall = useCallback(() => {
+    window.analytics.track('Contato');
+  }, []);
+
   return (
     <section className={className} data-testid="presentation">
       <Avatar src={me} alt="Eu" />
@@ -22,7 +26,7 @@ const Presentation: FunctionComponent<Props> = ({ className }) => {
       >
         -
       </a>
-      <Button href="#main-footer" data-testid="CTA">Contato</Button>
+      <Button href="#main-footer" data-testid="CTA" onClick={trackContactCall}>Contato</Button>
       <Mouse />
     </section>
   );

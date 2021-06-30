@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     name: 'Cleiton',
@@ -138,6 +142,18 @@ module.exports = {
       options: {
         sitemap: "/sitemap.xml",
         output: "/robots.txt"
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-segment-js',
+      options: {
+        prodKey: process.env.SEGMENT_PRODUCTION_WRITE_KEY,
+        devKey: process.env.SEGMENT_DEV_WRITE_KEY,
+        trackPage: true,
+        trackPageDelay: 100,
+        delayLoad: true,
+        delayLoadTime: 500,
+        manualLoad: false
       }
     },
     {
