@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 import { usePlugin, Form } from 'tinacms';
 import React, { FunctionComponent } from 'react';
 import { useRemarkForm } from 'gatsby-tinacms-remark';
+import { Helmet } from 'react-helmet';
 import { Presentation } from '~components/Presentation';
 import { About } from '~components/About';
 import { Skills } from '~components/Skills';
@@ -76,6 +77,10 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
       <div style={{ textAlign: 'center', transform: 'translateY(-120px)' }}>
         <Button href="/blog" size="medium">Ver tudo</Button>
       </div>
+
+      <Helmet>
+        <meta name="google-site-verification" content="uql-bXe5hRbsf55MhH5KWuccg4_q321XBST_KoaaKV4" />
+      </Helmet>
     </>
   );
 };
