@@ -132,7 +132,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-advanced-sitemap',
+      resolve: 'gatsby-plugin-sitemap',
       options: {
         output: "/sitemap.xml"
       }
