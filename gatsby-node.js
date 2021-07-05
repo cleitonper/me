@@ -23,6 +23,11 @@ exports.createPages = async ({ graphql, actions }) => {
             fields {
               slug
             }
+            parent {
+              ... on File {
+                mtime
+              }
+            }
           }
         }
       }
@@ -32,7 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `blog${node.fields.slug}`,
       component: path.resolve(`./src/templates/blog-post.tsx`),
-      context: { slug: node.fields.slug },
+      context: { slug: node.fields.slug, modifiedAt: node.parent.mtime },
     });
   });
 };

@@ -134,6 +134,38 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
+        query: `
+          {
+            allSitePage {
+              edges {
+                node {
+                  path
+                  context {
+                    modifiedAt
+                  }
+                }
+              }
+            }
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+          }
+        `,
+        serialize: ({ site, allSitePage }) => {
+          return allSitePage.edges.map((edge) => {
+            const {
+              path,
+              context = { modifiedAt: null }
+            } = edge.node;
+
+            return {
+              url: `${site.siteMetadata.siteUrl}${path}`,
+              lastmodISO: context.modifiedAt
+            }
+          });
+        },
         output: "/sitemap.xml"
       }
     },
